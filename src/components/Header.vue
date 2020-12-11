@@ -1,5 +1,5 @@
 <template>
-  <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2 font-serif md:font-serif w-screen fixed top-0">
+  <header class="header">
     <div class="flex-1 flex justify-between items-center">
       DTIC Planner
     </div>
@@ -46,7 +46,12 @@ name: "Header",
 </script>
 
 <style scoped>
+.header{
+  @apply lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2 font-serif md:font-serif w-screen fixed top-0;
+}
 .headerItem{
-  @apply lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-gray-800 cursor-pointer;
+  @apply lg:p-4 py-3 px-0 block border-b-4 border-transparent cursor-pointer; /*rounded-2xl*/
+  @apply hover:border-gray-800;
+  @apply hover:bg-gray-50;
 }
 </style>

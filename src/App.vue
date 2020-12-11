@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
+    <ProjectList></ProjectList>
     <UserList></UserList>
   </div>
 </template>
@@ -8,11 +9,12 @@
 <script>
 import UserList from "@/components/UserList";
 import Header from "@/components/Header";
+import ProjectList from "@/components/ProjectList";
 
 export default {
   name: 'App',
   components: {
-    UserList, Header,
+    UserList, Header, ProjectList,
   }
 }
 </script>
