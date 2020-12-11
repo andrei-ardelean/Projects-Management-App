@@ -24,7 +24,7 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
-        loadUsers ({commit}) {
+        load_users ({commit}) {
             axios.get("https://jsonplaceholder.typicode.com/users")
                 .then(response => response.data)
                 .then(users => {
