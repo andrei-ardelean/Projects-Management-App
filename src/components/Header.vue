@@ -1,5 +1,5 @@
 <template>
-  <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2 font-serif  md:font-serif">
+  <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2 font-serif md:font-serif w-screen fixed top-0">
     <div class="flex-1 flex justify-between items-center">
       DTIC Planner
     </div>
