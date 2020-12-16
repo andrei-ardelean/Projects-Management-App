@@ -1,7 +1,12 @@
 <template>
-  <div id="projectList" class="mt-20 font-serif md:font-serif">
+  <div
+    id="projectList"
+    class="mt-20 font-serif md:font-serif"
+  >
     <div class="projectHeader">
-      <div class="ml-14">Proiecte în lucru</div>
+      <div class="ml-14">
+        Proiecte în lucru
+      </div>
       <div class="mr-10">
         <img
           class="float-left mr-1"
@@ -9,8 +14,12 @@
           alt="searchIcon"
           width="25"
           height="25"
-        />
-        <input type="text" placeholder="Caută un proiect" class="searchInput" />
+        >
+        <input
+          type="text"
+          placeholder="Caută un proiect"
+          class="searchInput"
+        >
       </div>
     </div>
     <ProjectListTable />

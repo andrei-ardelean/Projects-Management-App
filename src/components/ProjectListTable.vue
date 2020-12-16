@@ -1,5 +1,8 @@
 <template>
-  <div id="projectListTable" class="mt-4">
+  <div
+    id="projectListTable"
+    class="mt-4"
+  >
     <table class="table">
       <thead>
         <tr>
@@ -12,7 +15,7 @@
                 alt="sortIcon"
                 width="20"
                 height="20"
-              />
+              >
             </div>
           </th>
           <th @click="sort('responsabil')">
@@ -24,7 +27,7 @@
                 alt="sortIcon"
                 width="20"
                 height="20"
-              />
+              >
             </div>
           </th>
           <th @click="sort('beneficiar')">
@@ -36,7 +39,7 @@
                 alt="sortIcon"
                 width="20"
                 height="20"
-              />
+              >
             </div>
           </th>
           <th @click="sort('status')">
@@ -48,7 +51,7 @@
                 alt="sortIcon"
                 width="20"
                 height="20"
-              />
+              >
             </div>
           </th>
           <th @click="sort('prioritate')">
@@ -60,7 +63,7 @@
                 alt="sortIcon"
                 width="20"
                 height="20"
-              />
+              >
             </div>
           </th>
           <th @click="sort('termen')">
@@ -72,13 +75,16 @@
                 alt="sortIcon"
                 width="20"
                 height="20"
-              />
+              >
             </div>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="data in sorted" :key="data.id">
+        <tr
+          v-for="data in sorted"
+          :key="data.id"
+        >
           <td>
             <div>{{ data.proiect }}</div>
             <div class="text-blue-700">
@@ -209,21 +215,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
-/* #projectListTable{
+#projectListTable {
   margin-right: 3%;
   margin-left: 3%;
 }
-.table{
+
+.table {
   @apply max-w-full shadow-xl;
 }
-th{
+
+th {
   @apply bg-gray-100 px-8 py-4 text-center w-4 cursor-pointer;
 }
-td{
+
+td {
   @apply border px-8 py-4;
 }
-tr{
+
+tr {
   @apply border;
   @apply hover:bg-gray-100;
-} */
+}
 </style>
