@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.headerItem {
-  @apply lg:p-4 py-3 px-0 block border-b-4 border-solid border-red-800 cursor-pointer rounded-2xl;
-  @apply hover:border-gray-800;
-  @apply hover:bg-gray-50;
-
-  > a {
-    @apply bg-white;
-  }
-}
+@import 'components/Header';
+@import 'components/ProjectList';
+@import 'components/UserList';

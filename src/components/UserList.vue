@@ -30,37 +30,3 @@ export default {
   computed: mapState(["users"]),
 };
 </script>
-
-<style scoped lang="scss">
-#user-list {
-  background: #fff8b1;
-  box-shadow: 1px 2px 3px rgba(#000, 0.5);
-  margin-bottom: 30px;
-  padding: 10px 20px;
-  margin-left: 48px;
-  margin-right: 48px;
-}
-
-#user-list ul {
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-#user-list li {
-  margin-right: 10px;
-  margin-top: 10px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.7);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-span {
-  font-weight: bold;
-  margin: 10px 10px;
-}
-
-</style>

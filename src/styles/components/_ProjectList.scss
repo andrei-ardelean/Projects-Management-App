@@ -1,0 +1,8 @@
+.projectHeader {
+  @apply flex flex-row justify-between;
+}
+
+.searchInput {
+  @apply px-4 rounded-xl border border-transparent shadow;
+  @apply focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-transparent;
+}

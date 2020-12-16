@@ -14,7 +14,10 @@
         >
           <li>
             <div class="headerItem">
-              <a class="mr-2">Proiect nou</a>
+              <a
+                href="#"
+                class="mr-2"
+              >Proiect nou</a>
               <img
                 class="float-right"
                 src="@/assets/addBtnIcon.png"
@@ -26,7 +29,10 @@
           </li>
           <li>
             <div class="headerItem">
-              <a class="mr-2">Task nou</a>
+              <a
+                href="#"
+                class="mr-2"
+              >Task nou</a>
               <img
                 class="float-right"
                 src="@/assets/addBtnIcon.png"
@@ -38,7 +44,10 @@
           </li>
           <li>
             <div class="headerItem">
-              <a class="mr-2">Contul tău</a>
+              <a
+                href="#"
+                class="mr-2"
+              >Contul tău</a>
               <img
                 class="float-right"
                 src="@/assets/accountIcon.png"
@@ -50,7 +59,10 @@
           </li>
           <li>
             <div class="headerItem">
-              <a class="mr-2">Administrare</a>
+              <a
+                href="#"
+                class="mr-2"
+              >Administrare</a>
               <img
                 class="float-right"
                 src="@/assets/settingsIcon.png"
@@ -71,10 +83,3 @@ export default {
   name: "Header",
 };
 </script>
-
-<style scoped lang="scss">
-.header {
-  @apply px-6 py-2 ;
-  @apply bg-blue-400 flex flex-wrap items-center font-serif md:font-serif w-screen fixed top-0;
-}
-</style>
