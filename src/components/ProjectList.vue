@@ -1,0 +1,37 @@
+<template>
+  <div id="projectList" class="mt-20 font-serif md:font-serif">
+    <Header/>
+    <div class="projectHeader">
+      <div class="ml-14">Proiecte în lucru</div>
+      <div class="mr-10">
+        <img class="float-left mr-1" src="@/assets/searchIcon.png" alt="searchIcon" width="25" height="25">
+        <input type="text" placeholder="Caută un proiect" class="searchInput">
+      </div>
+    </div>
+    <ProjectListTable></ProjectListTable>
+  </div>
+</template>
+
+<script>
+
+import ProjectListTable from "@/components/ProjectListTable";
+import Header from "@/components/Header";
+
+export default {
+  name: "ProjectList",
+  components: {
+    Header,
+    ProjectListTable,
+  }
+}
+</script>
+
+<style scoped>
+.projectHeader{
+  @apply flex flex-row justify-between;
+}
+.searchInput{
+  @apply px-4 ml-1 rounded-xl border border-transparent shadow;
+  @apply focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-transparent;
+}
+</style>
