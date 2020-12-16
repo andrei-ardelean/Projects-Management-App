@@ -1,6 +1,24 @@
 <template>
   <div>
     <Header />
+
+    <div id="nav">
+      <router-link
+        to="/home"
+        @click="goHome()"
+      >
+        Home
+      </router-link>
+      <router-link
+        to="/project"
+        @click="goProject()"
+      >
+        Project
+      </router-link>
+    </div>
+
+    <router-view />
+
     <!-- <ProjectList />
     <UserList /> -->
   </div>
@@ -17,6 +35,14 @@ export default {
     Header,
     // ProjectList,
     // UserList,
+  },
+  methods: {
+    goHome() {
+      this.$router.push({ name: "Home" });
+    },
+    goProject() {
+      this.$router.push({ name: "Project" });
+    },
   },
 };
 </script>
