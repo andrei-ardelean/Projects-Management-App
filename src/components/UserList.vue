@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* 
 #user-list{
   background: #FFF8B1;

@@ -1,6 +1,6 @@
 module.exports = {
-  assetsDir: 'src/assets',
+  assetsDir: "src/assets",
   css: {
     sourceMap: true
   }
-}
+};

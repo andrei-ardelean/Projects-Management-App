@@ -103,7 +103,7 @@ export default {
     return {
       jsonData: [],
       currentSort: "",
-      currentSortDir: "asc",
+      currentSortDir: "asc"
     };
   },
   mounted() {
@@ -121,7 +121,7 @@ export default {
             beneficiar: "Facultatea de Chimie",
             status: "Idee",
             prioritate: "Normală",
-            termen: "-",
+            termen: "-"
           },
           {
             id: 2,
@@ -131,7 +131,7 @@ export default {
             beneficiar: "Facultatea de Psihologie",
             status: "În prototipare",
             prioritate: "Ridicată",
-            termen: "14.12.2020",
+            termen: "14.12.2020"
           },
           {
             id: 3,
@@ -141,7 +141,7 @@ export default {
             beneficiar: "Departamentul de Administrare General",
             status: "În dezvoltare",
             prioritate: "Ridicată",
-            termen: "22.12.2020",
+            termen: "22.12.2020"
           },
           {
             id: 4,
@@ -151,7 +151,7 @@ export default {
             beneficiar: "Departamentul de Administrare General",
             status: "În dezvoltare",
             prioritate: "Scăzută",
-            termen: "12.12.2020",
+            termen: "12.12.2020"
           },
           {
             id: 5,
@@ -161,7 +161,7 @@ export default {
             beneficiar: "Departamentul de Administrare General",
             status: "Blocat",
             prioritate: "Ridicată",
-            termen: "12.01.2021",
+            termen: "12.01.2021"
           },
           {
             id: 6,
@@ -171,7 +171,7 @@ export default {
             beneficiar: "Facultatea de Matematică",
             status: "Idee",
             prioritate: "Normală",
-            termen: "23.12.2020",
+            termen: "23.12.2020"
           },
           {
             id: 7,
@@ -181,8 +181,8 @@ export default {
             beneficiar: "Centrul de Comunicații",
             status: "În dezvoltare",
             prioritate: "Ridicată",
-            termen: "01.02.2021",
-          },
+            termen: "01.02.2021"
+          }
         ];
       }, 300);
     },
@@ -192,7 +192,7 @@ export default {
       }
       this.currentSort = s;
       console.log(this.currentSort);
-    },
+    }
   },
   computed: {
     sorted: function() {
@@ -203,12 +203,12 @@ export default {
         if (a[this.currentSort] > b[this.currentSort]) return modifier;
         return 0;
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* #projectListTable{
   margin-right: 3%;
   margin-left: 3%;

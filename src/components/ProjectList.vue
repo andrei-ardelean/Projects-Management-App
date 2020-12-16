@@ -23,12 +23,12 @@ import ProjectListTable from "@/components/ProjectListTable";
 export default {
   name: "ProjectList",
   components: {
-    ProjectListTable,
-  },
+    ProjectListTable
+  }
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* .projectHeader{
   @apply flex flex-row justify-between;
 }
