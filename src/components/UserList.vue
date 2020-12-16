@@ -19,12 +19,12 @@ export default {
   mounted() {
     this.$store.dispatch("load_users");
   },
-  computed: mapState(["users"])
+  computed: mapState(["users"]),
 };
 </script>
 
 <style scoped lang="scss">
-/* 
+/*
 #user-list{
   background: #FFF8B1;
   box-shadow: 1px 2px 3px rgba(0,0,0,0.5);

@@ -5,6 +5,4 @@ import VueAxios from "vue-axios";
 
 import "./styles/main.scss";
 
-createApp(App)
-  .use(VueAxios, axios)
-  .mount("#app");
+createApp(App).use(VueAxios, axios).mount("#app");

@@ -1,8 +1,6 @@
 <template>
   <header class="header">
-    <div class="flex-1 flex justify-between items-center">
-      DTIC Planner
-    </div>
+    <div class="flex-1 flex justify-between items-center">DTIC Planner</div>
 
     <div class="lg:flex lg:items-center lg:w-auto" id="menu">
       <nav>
@@ -65,19 +63,19 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
 };
 </script>
 
 <style scoped lang="scss">
-.header {
-  @apply px-6 py-2 lg:py-0 lg:px-16;
-  @apply bg-blue-400 flex flex-wrap items-center font-serif md:font-serif w-screen fixed top-0;
-}
+// .header {
+//   @apply px-6 py-2 ;
+//   @apply bg-blue-400 flex flex-wrap items-center font-serif md:font-serif w-screen fixed top-0;
+// }
 
-.headerItem {
-  @apply lg:p-4 py-3 px-0 block border-b-4 border-solid border-red-800 cursor-pointer rounded-2xl;
-  @apply hover:border-gray-800;
-  @apply hover:bg-gray-50;
-}
+// .headerItem {
+//   @apply lg:p-4 py-3 px-0 block border-b-4 border-solid border-red-800 cursor-pointer rounded-2xl;
+//   @apply hover:border-gray-800;
+//   @apply hover:bg-gray-50;
+// }
 </style>

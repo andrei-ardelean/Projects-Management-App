@@ -29,20 +29,11 @@
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-vue": "^7.0.0-0",
     "node-sass": "^4.0.0",
-    "sass-loader": "^8.0.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/strongly-recommended",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
+    "prettier": "^2.2.1",
+    "prettier-plugin-tailwind": "^2.2.8",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0"
   },
   "browserslist": [
     "> 1%",
