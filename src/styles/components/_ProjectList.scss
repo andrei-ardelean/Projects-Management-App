@@ -6,3 +6,25 @@
   @apply px-4 rounded-xl border border-transparent shadow;
   @apply focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-transparent;
 }
+
+#projectListTable {
+  margin-right: 3%;
+  margin-left: 3%;
+}
+
+.table {
+  @apply max-w-full shadow-xl;
+}
+
+th {
+  @apply bg-gray-100 px-8 py-4 text-center w-4 cursor-pointer;
+}
+
+td {
+  @apply border px-8 py-4;
+}
+
+tr {
+  @apply border;
+  @apply hover:bg-gray-100;
+}
