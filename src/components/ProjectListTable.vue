@@ -1,5 +1,5 @@
 <template>
-  <div id="projectListTable" class="mt-4">
+  <div id="projectListTable" class="mt-4 app">
     <table class="table">
       <thead>
         <tr>
@@ -52,6 +52,9 @@
         <td>{{ data.status }}</td>
         <td>{{ data.prioritate}}</td>
         <td>{{ data.termen }}</td>
+        <td>
+          <button @click="openProject()">OPEN</button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -146,6 +149,9 @@ export default {
       }
       this.currentSort = s;
       console.log(this.currentSort);
+    },
+    openProject() {
+      this.$router.push({name:'ProjectPage'});
     }
   },
   computed: {

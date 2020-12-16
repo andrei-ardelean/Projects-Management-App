@@ -1,5 +1,6 @@
 <template>
   <div id="projectList" class="mt-20 font-serif md:font-serif">
+    <Header/>
     <div class="projectHeader">
       <div class="ml-14">Proiecte în lucru</div>
       <div class="mr-10">
@@ -14,10 +15,12 @@
 <script>
 
 import ProjectListTable from "@/components/ProjectListTable";
+import Header from "@/components/Header";
 
 export default {
   name: "ProjectList",
   components: {
+    Header,
     ProjectListTable,
   }
 }

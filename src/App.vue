@@ -1,20 +1,22 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <ProjectList></ProjectList>
-    <UserList></UserList>
+    <div id="nav">
+      <router-link to="/home" @click="goHome()">Home</router-link>
+      <router-link to="/project" @click="goProject()">Project</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import UserList from "@/components/UserList";
-import Header from "@/components/Header";
-import ProjectList from "@/components/ProjectList";
-
 export default {
-  name: 'App',
-  components: {
-    UserList, Header, ProjectList,
+  methods: {
+    goHome() {
+      this.$router.push({name:'Home'})
+    },
+    goProject() {
+      this.$router.push({name:'ProjectPage'})
+    }
   }
 }
 </script>
@@ -26,5 +28,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

@@ -47,7 +47,13 @@ name: "Header",
 
 <style scoped>
 .header{
-  @apply lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2 font-serif md:font-serif w-screen fixed top-0;
+  @apply
+    flex flex-wrap items-center
+    bg-white
+    px-6
+    md:font-serif
+    lg:py-0
+    lg:px-16 py-2 font-serif w-screen fixed top-0;
 }
 .headerItem{
   @apply lg:p-4 py-3 px-0 block border-b-4 border-transparent cursor-pointer; /*rounded-2xl*/
