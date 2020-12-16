@@ -3,7 +3,7 @@ import Vuex from "vuex";
 import axios from "axios";
 
 Vue.use(Vuex);
-
+// e bine dar trebuie pus pe vue 3 & axios wrapper
 export const store = new Vuex.Store({
   state: {
     // users: [
