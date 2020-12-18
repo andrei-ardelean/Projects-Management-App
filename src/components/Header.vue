@@ -22,8 +22,6 @@
                 class="float-right"
                 src="@/assets/addBtnIcon.png"
                 alt="addBtnIcon"
-                width="25"
-                height="25"
               >
             </div>
           </li>
@@ -37,8 +35,6 @@
                 class="float-right"
                 src="@/assets/addBtnIcon.png"
                 alt="addBtnIcon"
-                width="25"
-                height="25"
               >
             </div>
           </li>
@@ -52,8 +48,6 @@
                 class="float-right"
                 src="@/assets/accountIcon.png"
                 alt="accountIcon"
-                width="25"
-                height="25"
               >
             </div>
           </li>
@@ -67,8 +61,6 @@
                 class="float-right"
                 src="@/assets/settingsIcon.png"
                 alt="settingsIcon"
-                width="25"
-                height="25"
               >
             </div>
           </li>

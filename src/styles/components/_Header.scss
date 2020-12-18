@@ -1,14 +1,17 @@
 .header {
   @apply px-6 py-2 ;
-  @apply bg-blue-400 flex flex-wrap items-center font-serif md:font-serif w-screen;
+  @apply flex flex-wrap items-center font-serif md:font-serif w-screen;
 }
 
 .headerItem {
-  @apply lg:p-4 py-3 px-0 flex rounded-2xl;
-  @apply hover:border-gray-800;
-  @apply hover:bg-gray-50;
+  @apply lg:p-4 py-3 px-0 flex cursor-pointer;
+  @apply hover:border-gray-900;
 
   > a {
     @apply bg-white;
+  }
+
+  > img {
+    @apply w-6 h-6;
   }
 }
