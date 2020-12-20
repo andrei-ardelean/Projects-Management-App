@@ -1,14 +1,16 @@
 <template>
   <div class="ppv">
-    <Header />
+    <!-- <Header /> -->
   </div>
 </template>
 
 <script>
-import Header from "@/components/Header";
+//import Header from "@/components/Header";
 
 export default {
   name: "Project",
-  components: { Header },
+  components: {
+    // Header
+  },
 };
 </script>
