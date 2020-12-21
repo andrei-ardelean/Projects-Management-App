@@ -1,14 +1,37 @@
-.header {
-  @apply px-6 py-2 ;
-  @apply flex flex-wrap items-center font-serif md:font-serif w-screen;
+nav {
+  @apply flex items-center bg-gray-800 p-3 flex-wrap;
 }
 
-.headerItem {
-  @apply lg:p-4 py-3 px-0 flex cursor-pointer border-b-4 border-transparent;
-  @apply hover:bg-gray-50;
-  @apply hover:border-black;
+.brand {
+  @apply p-2 mr-4 inline-flex items-center;
+}
 
-  > img {
-    @apply w-6 h-6;
+.title {
+  @apply text-xl text-white font-bold uppercase tracking-wide;
+}
+
+.hamburgerBtn {
+  @apply text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none;
+}
+
+.topNavOptions {
+  @apply w-full lg:inline-flex lg:flex-grow lg:w-auto;
+}
+
+@media (min-width: 1024px) {
+  .topNavOptions {
+    display: inline-flex !important;
   }
+}
+
+.navOptions {
+  @apply lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto;
+}
+
+.navItem {
+  @apply lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white;
+}
+
+.menu {
+  @apply text-sm text-gray-400 hover:bg-gray-900 hover:text-white;
 }
