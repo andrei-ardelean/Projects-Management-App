@@ -1,15 +1,17 @@
 <template>
   <nav>
-    <a
-      href="#"
-      class="brand"
-    >
-      <span
-        class="title"
+    <router-link to="/home" @click="goHome()">
+      <a
+        href="#"
+        class="brand"
       >
-        DTIC Planner
-      </span>
-    </a>
+        <span
+          class="title"
+        >
+          DTIC Planner
+        </span>
+      </a>
+    </router-link>
     <button
       class="hamburgerBtn togglerNav menu"
       data-target="#navigation"      
@@ -25,12 +27,15 @@
       <div
         class="navOptions"
       >
-        <a
-          href="#"
-          class="navItem"
-        >
-          <span>Proiect nou</span>
-        </a>
+        <router-link to="/project" @click="goProject()">
+          <a
+            href="#"
+            class="navItem"
+          >
+          
+            <span>Proiect nou</span>
+          </a>
+        </router-link>
         <a
           href="#"
           class="navItem"
@@ -70,6 +75,14 @@ export default {
         });
       });
     });
+  },
+  methods: {
+    goHome() {
+      this.$router.push({ name: "Home" });
+    },
+    goProject() {
+      this.$router.push({ name: "Project" });
+    },
   },
 };
 </script>

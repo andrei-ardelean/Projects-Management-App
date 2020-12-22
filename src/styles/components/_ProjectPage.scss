@@ -1,0 +1,20 @@
+.container {
+  @apply border-4;
+  @apply border-black;
+  @apply w-3/4;
+  @apply m-0;
+  @apply flex justify-center flex-col;
+  @apply space-y-12;
+  @apply mb-24;
+}
+
+.row {
+  @apply w-full;
+  @apply flex flex-row justify-center;
+}
+
+.button {
+  @apply border-2;
+  @apply border-black;
+  @apply hover:bg-gray-800 hover:text-white;
+}

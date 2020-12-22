@@ -4,7 +4,7 @@
     <div class="h-28" />
 
     <div id="nav">
-      <router-link
+      <!-- <router-link
         to="/home"
         @click="goHome()"
       >
@@ -15,12 +15,12 @@
         @click="goProject()"
       >
         Project
-      </router-link>
+      </router-link> -->
     </div>
 
     <router-view />
 
-    <ProjectList />
+    <!-- <ProjectList /> -->
     <!-- <UserList /> -->
   </div>
 </template>
@@ -45,6 +45,9 @@ export default {
       this.$router.push({ name: "Project" });
     },
   },
+  beforeCreate () {
+    this.$router.push({ name: 'Home' })
+}
 };
 </script>
 

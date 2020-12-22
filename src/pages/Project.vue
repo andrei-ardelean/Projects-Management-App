@@ -1,16 +1,17 @@
 <template>
-  <div class="ppv">
-    <!-- <Header /> -->
-  </div>
+    <ProjectPage />
+    <ProjectListTable />
 </template>
 
 <script>
-//import Header from "@/components/Header";
+import ProjectPage from '@/components/ProjectPage';
+import ProjectListTable from '@/components/ProjectListTable';
 
 export default {
   name: "Project",
   components: {
-    // Header
+    ProjectPage,
+    ProjectListTable
   },
 };
 </script>
