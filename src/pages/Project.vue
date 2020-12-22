@@ -1,6 +1,6 @@
 <template>
-    <ProjectPage />
-    <ProjectListTable />
+  <ProjectPage />
+  <ProjectListTable />
 </template>
 
 <script>

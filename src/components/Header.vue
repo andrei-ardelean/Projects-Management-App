@@ -1,6 +1,9 @@
 <template>
   <nav>
-    <router-link to="/home" @click="goHome()">
+    <router-link
+      to="/home"
+      @click="goHome()"
+    >
       <a
         href="#"
         class="brand"
@@ -27,7 +30,10 @@
       <div
         class="navOptions"
       >
-        <router-link to="/project" @click="goProject()">
+        <router-link
+          to="/project"
+          @click="goProject()"
+        >
           <a
             href="#"
             class="navItem"
