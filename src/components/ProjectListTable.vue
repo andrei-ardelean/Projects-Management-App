@@ -84,6 +84,7 @@
         <tr
           v-for="data in sorted"
           :key="data.id"
+          @click="clickOnTableRow(data)"
         >
           <td>
             <div>{{ data.proiect }}</div>
@@ -199,6 +200,11 @@ export default {
       this.currentSort = s;
       console.log(this.currentSort);
     },
+    clickOnTableRow: function(column) {
+      console.log("click on: " + JSON.stringify(column));
+      alert("you click on: " + JSON.stringify(column));
+      this.$router.push({ name: "Project" });
+    }
   },
   computed: {
     sorted: function () {

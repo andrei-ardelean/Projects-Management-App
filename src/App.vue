@@ -20,8 +20,8 @@
 
     <router-view />
 
-    <!-- <ProjectList />
-    <UserList /> -->
+    <ProjectList />
+    <!-- <UserList /> -->
   </div>
 </template>
 

@@ -35,11 +35,11 @@
 }
 
 .table {
-  @apply max-w-full shadow-xl;
+  @apply max-w-full shadow-xl text-center;
 }
 
 th {
-  @apply bg-gray-100 px-8 py-4 text-center w-4 cursor-pointer;
+  @apply bg-gray-100 px-8 py-4 w-4 cursor-pointer;
 }
 
 td {
