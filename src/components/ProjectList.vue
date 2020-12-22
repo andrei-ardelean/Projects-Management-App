@@ -1,25 +1,33 @@
 <template>
   <div
-    id="projectList"
-    class="mt-20 font-serif md:font-serif"
+    id="projectsArea"
   >
     <div class="projectHeader">
-      <div class="ml-14">
+      <div class="titleArea">
         Proiecte în lucru
       </div>
-      <div class="mr-10">
-        <img
-          class="float-left mr-1"
-          src="@/assets/searchIcon.png"
-          alt="searchIcon"
-          width="25"
-          height="25"
-        >
+      <div class="searchArea">
         <input
           type="text"
           placeholder="Caută un proiect"
+          spellcheck="false"
           class="searchInput"
         >
+        <span class="svgIcon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </span>
       </div>
     </div>
     <ProjectListTable />

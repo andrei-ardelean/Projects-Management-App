@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="bg-gray-50 w-full">
     <Header />
+    <div class="h-28" />
 
     <div id="nav">
       <router-link
