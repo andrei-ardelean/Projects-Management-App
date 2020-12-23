@@ -30,18 +30,13 @@
       <div
         class="navOptions"
       >
-        <router-link
-          to="/project"
+        <a
+          href="#"
+          class="navItem"
           @click="goProject()"
         >
-          <a
-            href="#"
-            class="navItem"
-          >
-          
-            <span>Proiect nou</span>
-          </a>
-        </router-link>
+          <span>Proiect nou</span>
+        </a>
         <a
           href="#"
           class="navItem"
