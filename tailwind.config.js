@@ -14,6 +14,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    appearance: ['hover', 'focus'],
+  },
   plugins: [],
 };

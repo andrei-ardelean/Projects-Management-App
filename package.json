@@ -12,6 +12,7 @@
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "date-fns": "^2.16.1",
     "jquery": "^3.5.1",
     "material-ui-icons": "^1.0.0-beta.36",
     "postcss": "^7.0.35",
@@ -21,6 +22,8 @@
     "vue-grid-responsive": "^0.2.0",
     "vue-material-design-icons": "^4.11.0",
     "vue-router": "^4.0.0-0",
+    "vue3-datepicker": "^0.1.3",
+    "vue3-datepicker-lite": "^1.8.1",
     "vuex": "^3.6.0"
   },
   "devDependencies": {

@@ -11,27 +11,7 @@
       <div
         class="w-2/3"
       >
-        <h1>
-          Calendar
-        </h1>
-      </div>
-    </div>
-
-    <div
-      class="row"
-    >
-      <div class="w-1/3">
-        <span>Prioritate</span>
-      </div>
-      <div
-        class="w-2/3"
-      >
-        <select class="w-2/3">
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
-          <option>D</option>
-        </select>
+        Calendar
       </div>
     </div>
 
@@ -44,12 +24,13 @@
       <div
         class="w-2/3"
       >
-        <select class="w-2/3">
-          <option>R1</option>
-          <option>R2</option>
-          <option>R3</option>
-          <option>R4</option>
-        </select>
+        <input
+          type="text"
+          placeholder="Responsabil"
+          v-model="responsabil"
+          spellcheck="false"
+          class="w-1/3 inputField"
+        >
       </div>
     </div>
 
@@ -57,24 +38,74 @@
       class="row"
     >
       <div class="w-1/3">
-        <span>Participanti</span>
+        <span>Prioritate</span>
       </div>
       <div
         class="w-2/3"
       >
-        <span>Participant 1</span>
-        <span>Participant 2</span>
-        <span>Participant 3</span>
-        <span>Participant 4</span>
-        <span>Participant 5</span>
-        <span>Participant 6</span>
-        <span>Participant 7</span>
-        <span>Participant 8</span>
-        <button
-          class="button"
+        <div
+          class="w-1/3 selectionArea"
+          @click="switchPrioritateDropDown()"
         >
-          + Adauga Participant
-        </button>
+          <span>{{ prioritateField }}</span>
+          <svg
+            class="w-7 h-7 inset-y-0 right-0"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="w-1/3 dropDownList"
+          :class="{hidden:prioritateDropDown == false, absolute:prioritateDropDown == true}"
+        >
+          <div
+            class="w-1/2 option"
+            v-for="data in prioritate"
+            :key="data"
+            @click="selectPrioritate(data)"
+            :class="[prioritateField == data ? 'selectedOption' : '']"
+          >
+            {{ data }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="row"
+    >
+      <div class="w-1/3">
+        <span>Participanți</span>
+      </div>
+      <div
+        class="w-2/3"
+      >
+        <div
+          class="w-2/3 participantiArea"
+        >
+          <div
+            v-for="data in participanti"
+            :key="data"
+            class="participant"
+          >
+            {{ data }}
+          </div>
+          <div>
+            <button
+              class="button"
+            >
+              + Adaugă participant
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -88,9 +119,11 @@
         class="w-2/3"
       >
         <input
-          type="text" 
-          placeholder="Beneficiar" 
-          class="w-2/3"
+          type="text"
+          placeholder="Beneficiar"
+          v-model="beneficiar"
+          spellcheck="false"
+          class="w-1/3 inputField"
         >
       </div>
     </div>
@@ -104,12 +137,39 @@
       <div
         class="w-2/3"
       >
-        <select class="w-1/2">
-          <option>status 1</option>
-          <option>status 2</option>
-          <option>status 3</option>
-          <option>status 4</option>
-        </select>
+        <div
+          class="w-1/3 selectionArea"
+          @click="switchStatusDropDown()"
+        >
+          <span>{{ statusField }}</span>
+          <svg
+            class="w-7 h-7 inset-y-0 right-0"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="w-1/3 dropDownList"
+          :class="{hidden:statusDropDown == false, absolute:statusDropDown == true}"
+        >
+          <div
+            class="w-1/2 option"
+            v-for="data in status"
+            :key="data"
+            @click="selectStatus(data)"
+            :class="[statusField == data ? 'selectedOption' : '']"
+          >
+            {{ data }}
+          </div>
+        </div>
       </div>
     </div>
 
@@ -127,6 +187,7 @@
         </button>
       </div>
     </div>
+
     <div
       class="row"
     >
@@ -136,7 +197,7 @@
         <button
           class="button"
         >
-          Modifica
+          Modifică
         </button>
       </div>
     </div>
@@ -146,7 +207,56 @@
 <script>
 export default {
   name: "ProjectPage",
-  components: {}
+  components: {},
+  data() {
+    return {
+      beneficiar : "Facultatea de Psihologie",
+      status : ["status 1", "status 2", "status 3", "status 4"],
+      responsabil : "Răzvan Pavel",
+      prioritate : ["scăzută", "medie", "ridicată"],
+      participanti : ["Participant 1", "Participant 2", "Participant 3", "Participant 4", "Participant 5", "Participant 6", "Participant 7", "Participant 8", "Participant 9"],
+      prioritateDropDown : false,
+      responsabilDropDown : false,
+      statusDropDown : false,
+      prioritateField : "Selectează",
+      responsabilField : "Selectează",
+      statusField : "Selectează",
+    }
+  },
+  methods: {
+    selectPrioritate(value) {
+      this.prioritateField = value;
+      this.switchPrioritateDropDown();
+    },
+    switchPrioritateDropDown() {
+      if(this.prioritateDropDown == false){
+        this.prioritateDropDown = true;
+      }
+      else {
+        this.prioritateDropDown = false;
+      }
+    },
+    selectResponsabil(value) {
+      this.responsabilField = value;
+      this.switchResponsabilDropDown();
+    },
+    switchResponsabilDropDown() {
+      if(this.responsabilDropDown == false)
+        this.responsabilDropDown = true;
+      else
+        this.responsabilDropDown = false;
+    },
+    selectStatus(value) {
+      this.statusField = value;
+      this.switchStatusDropDown();
+    },
+    switchStatusDropDown() {
+      if(this.statusDropDown == false)
+        this.statusDropDown = true;
+      else
+        this.statusDropDown = false;
+    }
+  }
 }
 </script>
 

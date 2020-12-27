@@ -1,11 +1,12 @@
 .container {
-  @apply border-4;
-  @apply border-black;
+  @apply border-2 rounded-lg;
+  @apply border-white;
   @apply w-3/4;
   @apply m-0;
   @apply flex justify-center flex-col;
-  @apply space-y-12;
+  @apply space-y-20;
   @apply mb-24;
+  @apply bg-gray-800 text-gray-200;
 }
 
 .row {
@@ -14,7 +15,46 @@
 }
 
 .button {
-  @apply border-2;
-  @apply border-black;
-  @apply hover:bg-gray-800 hover:text-white;
+  @apply border rounded p-2;
+  @apply border-white;
+  @apply hover:bg-gray-900 hover:text-white;
+}
+
+.participantiArea {
+  @apply flex flex-row flex-wrap justify-around items-center;
+  @apply p-2;
+}
+
+.participant {
+  @apply border border-gray-50 rounded p-2 mb-1;
+}
+
+.inputField {
+  @apply text-gray-800 font-bold px-2 py-1 border border-gray-800 rounded;
+  @apply focus:outline-none;
+}
+
+.selectionArea {
+  @apply relative;
+  @apply border-gray-800 rounded bg-white text-gray-800 text-base;
+  @apply cursor-pointer;
+  @apply hover:bg-gray-100;
+  @apply flex flex-row flex-wrap justify-between items-center;
+}
+
+.dropDownList {
+  @apply bg-transparent;
+  @apply mt-1;
+}
+
+.option {
+  @apply bg-gray-50 text-gray-800 font-bold;
+  @apply hover:bg-gray-900 hover:text-gray-50;
+  @apply px-2 py-1 border border-gray-800 rounded;
+  @apply cursor-pointer;
+}
+
+.selectedOption {
+  @apply bg-gray-900 text-gray-50;
+  @apply border-2 border-gray-50;
 }

@@ -80,9 +80,21 @@ export default {
   methods: {
     goHome() {
       this.$router.push({ name: "Home" });
+      $(".togglerNav").each(function (_, navToggler){
+        var target = $(navToggler).data("target");
+        $(target).animate({
+          height: "toggle",
+        });
+      });
     },
     goProject() {
       this.$router.push({ name: "Project" });
+      $(".togglerNav").each(function (_, navToggler){
+        var target = $(navToggler).data("target");
+        $(target).animate({
+          height: "toggle",
+        });
+      });
     },
   },
 };
