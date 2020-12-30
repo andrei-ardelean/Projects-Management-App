@@ -64,6 +64,7 @@
 
         <div
           class="w-1/3 dropDownList"
+          @mouseleave="onMouseLeavePrioritate()"
           :class="{hidden:prioritateDropDown == false, absolute:prioritateDropDown == true}"
         >
           <div
@@ -158,6 +159,7 @@
 
         <div
           class="w-1/3 dropDownList"
+          @mouseleave="onMouseLeaveStatus()"
           :class="{hidden:statusDropDown == false, absolute:statusDropDown == true}"
         >
           <div
@@ -255,6 +257,12 @@ export default {
         this.statusDropDown = true;
       else
         this.statusDropDown = false;
+    },
+    onMouseLeavePrioritate() {
+      this.prioritateDropDown = false;
+    },
+    onMouseLeaveStatus() {
+      this.statusDropDown = false;
     }
   }
 }
