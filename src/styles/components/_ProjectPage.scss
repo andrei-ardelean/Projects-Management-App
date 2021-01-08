@@ -1,11 +1,11 @@
 .container {
   @apply border-2 rounded-lg;
   @apply border-white;
-  @apply w-3/4;
+  @apply w-3/5;
   @apply m-0;
   @apply flex justify-center flex-col;
-  @apply space-y-20;
-  @apply mb-24;
+  @apply space-y-12;
+  @apply mb-12;
   @apply bg-gray-800 text-gray-200;
 }
 
@@ -15,9 +15,11 @@
 }
 
 .button {
+  @apply bg-green-800 font-bold;
   @apply border rounded p-2;
   @apply border-white;
-  @apply hover:bg-gray-900 hover:text-white;
+  @apply hover:bg-green-900 hover:text-white;
+  @apply focus:outline-none;
 }
 
 .participantiArea {
@@ -27,6 +29,7 @@
 
 .participant {
   @apply border border-gray-50 rounded p-2 mb-1;
+  @apply hover:bg-red-600 cursor-pointer;
 }
 
 .inputField {
@@ -57,4 +60,33 @@
 .selectedOption {
   @apply bg-gray-900 text-gray-50;
   @apply border-2 border-gray-50;
+}
+
+.section {
+  @apply mt-4 flex;
+}
+
+.miniSection {
+  @apply text-base;
+}
+
+.participantiSection {
+  @apply ml-12 mr-12;
+}
+
+.leftSection {
+  @apply ml-12 mr-3;
+}
+
+.rightSection {
+  @apply ml-3 mr-12;
+}
+
+.nameOfSection {
+  @apply mb-1 text-xl font-sans;
+}
+
+.lastSection {
+  @apply mb-1 text-xl font-sans;
+  @apply flex flex-row items-center;
 }
