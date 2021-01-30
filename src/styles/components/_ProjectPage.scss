@@ -1,7 +1,7 @@
 .container {
   @apply border-2 rounded-lg;
   @apply border-white;
-  @apply w-3/5;
+  @apply w-4/5;
   @apply m-0;
   @apply flex justify-center flex-col;
   @apply space-y-12;
@@ -16,10 +16,10 @@
 
 .button {
   @apply bg-green-800 font-bold;
-  @apply border rounded p-2;
-  @apply border-white;
-  @apply hover:bg-green-900 hover:text-white;
+  @apply border-none rounded p-2;
+  @apply hover:text-white;
   @apply focus:outline-none;
+  @apply transition duration-100 ease-in-out transform hover:scale-105;
 }
 
 .participantiArea {
@@ -28,8 +28,9 @@
 }
 
 .participant {
-  @apply border border-gray-50 rounded p-2 mb-1;
+  @apply border-none rounded p-2 mb-2 text-lg;
   @apply hover:bg-red-600 cursor-pointer;
+  @apply transition duration-100 ease-in-out transform hover:scale-105;
 }
 
 .inputField {

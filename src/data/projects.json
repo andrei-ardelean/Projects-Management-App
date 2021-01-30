@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "nrParticipanti": 6,
+        "participanti": ["Stelian Ion", "Razvan Pavel", "Adrian Pavel", "Costel Orac", "Magda Barbu", "Mirel Radoi"],
+        "proiect": "Acesta este un proiect misto",
+        "responsabil": "Adrian Hudrea",
+        "beneficiar": "Facultatea de Chimie",
+        "status": "Idee",
+        "prioritate": "Normală",
+        "termen": "14.02.2021"
+    },
+    {
+        "id": 2,
+        "nrParticipanti": 10,
+        "participanti": ["Stelian Ion", "Razvan Pavel", "Adrian Pavel", "Costel Orac", "Magda Barbu", "Septimiu Albini", "Mirel Radoi", "Ionut Chirila", "Radu Banciu", "Cristian Tudor-Popescu"],
+        "proiect": "Acesta este un proiect mai important",
+        "responsabil": "Razvan Pavel",
+        "beneficiar": "Facultatea de Psihologie",
+        "status": "În prototipare",
+        "prioritate": "Ridicată",
+        "termen": "14.12.2020"
+    },
+    {
+        "id": 3,
+        "nrParticipanti": 7,
+        "participanti": ["Razvan Pavel", "Costel Orac", "Magda Barbu", "Mirel Radoi", "Ionut Chirila", "Radu Banciu", "Cristian Tudor-Popescu"],
+        "proiect": "Acesta ar putea fi un proiect frumos",
+        "responsabil": "Kata Matea",
+        "beneficiar": "Departamentul de Administrare General",
+        "status": "În dezvoltare",
+        "prioritate": "Ridicată",
+        "termen": "22.12.2020"
+    },
+    {
+        "id": 4,
+        "nrParticipanti": 4,
+        "participanti": ["Razvan Pavel", "Costel Orac", "Ionut Chirila", "Radu Banciu"],
+        "proiect": "Cel mai proiect",
+        "responsabil": "Daniel Stuparu",
+        "beneficiar": "Departamentul de Administrare General",
+        "status": "În dezvoltare",
+        "prioritate": "Scăzută",
+        "termen": "12.12.2020"
+    },
+    {
+        "id": 5,
+        "nrParticipanti": 3,
+        "participanti": ["Adrian Pavel", "Magda Barbu", "Radu Banciu"],
+        "proiect": "Acesta este un proiect",
+        "responsabil": "Daniel Stuparu",
+        "beneficiar": "Departamentul de Administrare General",
+        "status": "Blocat",
+        "prioritate": "Ridicată",
+        "termen": "12.01.2021"
+    },
+    {
+        "id": 6,
+        "nrParticipanti": 2,
+        "participanti": ["Costel Orac", "Cristian Tudor-Popescu"],
+        "proiect": "Acesta este un alt proiect",
+        "responsabil": "Adrian Pavel",
+        "beneficiar": "Facultatea de Matematică",
+        "status": "Idee",
+        "prioritate": "Normală",
+        "termen": "23.12.2020"
+    },
+    {
+        "id": 7,
+        "nrParticipanti": 6,
+        "participanti": ["Razvan Pavel", "Adrian Pavel", "Costel Orac", "Magda Barbu", "Radu Banciu", "Cristian Tudor-Popescu"],
+        "proiect": "Acesta este un proiect deosebit",
+        "responsabil": "Gabriel Ciplea",
+        "beneficiar": "Centrul de Comunicații",
+        "status": "În dezvoltare",
+        "prioritate": "Ridicată",
+        "termen": "01.02.2021"
+    }
+]

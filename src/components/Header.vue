@@ -33,7 +33,7 @@
         <a
           href="#"
           class="navItem"
-          @click="goProject()"
+          @click="createNewProject()"
         >
           <span>Proiect nou</span>
         </a>
@@ -87,8 +87,8 @@ export default {
         });
       });
     },
-    goProject() {
-      this.$router.push({ name: "Project" });
+    createNewProject() {
+      this.$router.push({ name: "NewProject" });
       $(".togglerNav").each(function (_, navToggler){
         var target = $(navToggler).data("target");
         $(target).animate({

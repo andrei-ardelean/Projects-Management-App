@@ -3,39 +3,24 @@
     <Header />
     <div class="h-28" />
 
-    <div id="nav">
-      <!-- <router-link
-        to="/home"
-        @click="goHome()"
-      >
-        Home
-      </router-link>
-      <router-link
-        to="/project"
-        @click="goProject()"
-      >
-        Project
-      </router-link> -->
-    </div>
+    <div id="nav" />
 
     <router-view />
-
-    <!-- <ProjectList /> -->
-    <!-- <UserList /> -->
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-// import ProjectList from "./components/ProjectList.vue";
-// import UserList from "./components/UserList.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    // ProjectList,
-    // UserList,
+  },
+  data() {
+    return {
+      currentRoutePath : "" 
+    }
   },
   methods: {
     goHome() {

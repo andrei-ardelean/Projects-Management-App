@@ -84,7 +84,7 @@
         <tr
           v-for="data in sorted"
           :key="data.id"
-          @click="clickOnTableRow(data)"
+          @click="clickOnTableRow(data.id)"
         >
           <td>
             <div>{{ data.proiect }}</div>
@@ -104,6 +104,8 @@
 </template>
 
 <script>
+import projects from "@/data/projects.json";
+
 export default {
   name: "ProjectListTable",
   data: function () {
@@ -119,78 +121,7 @@ export default {
   methods: {
     loadJsonData() {
       setTimeout(() => {
-        this.jsonData = [
-          {
-            id: 1,
-            nrParticipanti: 6,
-            proiect: "Acesta este un proiect",
-            responsabil: "Adrian Hudrea",
-            beneficiar: "Facultatea de Chimie",
-            status: "Idee",
-            prioritate: "Normală",
-            termen: "-",
-          },
-          {
-            id: 2,
-            nrParticipanti: 10,
-            proiect: "Acesta este un proiect mai important",
-            responsabil: "Razvan Pavel",
-            beneficiar: "Facultatea de Psihologie",
-            status: "În prototipare",
-            prioritate: "Ridicată",
-            termen: "14.12.2020",
-          },
-          {
-            id: 3,
-            nrParticipanti: 7,
-            proiect: "Acesta ar putea fi un proiect frumos",
-            responsabil: "Kata Matea",
-            beneficiar: "Departamentul de Administrare General",
-            status: "În dezvoltare",
-            prioritate: "Ridicată",
-            termen: "22.12.2020",
-          },
-          {
-            id: 4,
-            nrParticipanti: 2,
-            proiect: "Cel mai proiect",
-            responsabil: "Daniel Stuparu",
-            beneficiar: "Departamentul de Administrare General",
-            status: "În dezvoltare",
-            prioritate: "Scăzută",
-            termen: "12.12.2020",
-          },
-          {
-            id: 5,
-            nrParticipanti: 3,
-            proiect: "Acesta este un proiect",
-            responsabil: "Daniel Stuparu",
-            beneficiar: "Departamentul de Administrare General",
-            status: "Blocat",
-            prioritate: "Ridicată",
-            termen: "12.01.2021",
-          },
-          {
-            id: 6,
-            nrParticipanti: 2,
-            proiect: "Acesta este un proiect",
-            responsabil: "Adrian Pavel",
-            beneficiar: "Facultatea de Matematică",
-            status: "Idee",
-            prioritate: "Normală",
-            termen: "23.12.2020",
-          },
-          {
-            id: 7,
-            nrParticipanti: 6,
-            proiect: "Acesta este un proiect",
-            responsabil: "Gabriel Ciplea",
-            beneficiar: "Centrul de Comunicații",
-            status: "În dezvoltare",
-            prioritate: "Ridicată",
-            termen: "01.02.2021",
-          },
-        ];
+        this.jsonData = projects;
       }, 300);
     },
     sort: function (s) {
@@ -200,10 +131,8 @@ export default {
       this.currentSort = s;
       console.log(this.currentSort);
     },
-    clickOnTableRow: function(column) {
-      console.log("click on: " + JSON.stringify(column));
-      alert("you click on: " + JSON.stringify(column));
-      this.$router.push({ name: "Project" });
+    clickOnTableRow: function(id) {
+      this.$router.push({ path: "/project/" + id });
     }
   },
   computed: {

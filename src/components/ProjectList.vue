@@ -9,12 +9,14 @@
       <div class="searchArea">
         <input
           type="text"
+          v-model="searchField"
           placeholder="Caută un proiect"
           spellcheck="false"
           class="searchInput"
         >
         <span class="svgIcon">
           <svg
+            @click="searchProjects()"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -42,5 +44,15 @@ export default {
   components: {
     ProjectListTable,
   },
+  data() {
+    return {
+      searchField : ""
+    }
+  },
+  methods: {
+    searchProjects() {
+
+    }
+  }
 };
 </script>
