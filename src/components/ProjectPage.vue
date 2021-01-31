@@ -39,7 +39,10 @@
             spellcheck="false"
             class="w-full inputField"
           > -->
-            <DatepickerLite v-model="picked" class="text-black cursor-pointer" />
+          <DatepickerLite
+            v-model="termen"
+            class="text-black cursor-pointer"
+          />
         </div>
       </div>
     </div>
@@ -296,10 +299,7 @@
       </div>
     </div>
   </div>
-  <div>
-  </div>
 </template>
-
 <script>
 // import beneficiaries from "@/data/beneficiaries.json";
 // import responsables from "@/data/responsables.json";

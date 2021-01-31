@@ -91,3 +91,11 @@
   @apply mb-1 text-xl font-sans;
   @apply flex flex-row items-center;
 }
+
+.picker__box {
+  @apply w-full;
+}
+
+.picker__table {
+  @apply w-full table-fixed;
+}
