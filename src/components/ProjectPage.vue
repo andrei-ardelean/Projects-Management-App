@@ -11,12 +11,12 @@
         <div
           class="nameOfSection"
         >
-          Nume
+          Nume proiect
         </div>
         <div>
           <input
             type="text"
-            placeholder="Adrian Hudrea"
+            placeholder="Introdu numele proiectului"
             v-model="numeProiect"
             spellcheck="false"
             class="w-full inputField"
@@ -32,13 +32,14 @@
           Termen
         </div>
         <div>
-          <input
+          <!-- <input
             type="text"
             placeholder="23/12/2020"
             v-model="termen"
             spellcheck="false"
             class="w-full inputField"
-          >
+          > -->
+            <DatepickerLite v-model="picked" class="text-black cursor-pointer" />
         </div>
       </div>
     </div>
@@ -57,7 +58,7 @@
         <div>
           <input
             type="text"
-            placeholder="Responsabil"
+            placeholder="Introdu responsabilul proiectului"
             v-model="responsabil"
             spellcheck="false"
             class="w-full inputField"
@@ -75,7 +76,7 @@
         <div>
           <input
             type="text"
-            placeholder="Beneficiar"
+            placeholder="Introdu beneficiarul proiectului"
             v-model="beneficiar"
             spellcheck="false"
             class="w-full inputField"
@@ -295,6 +296,8 @@
       </div>
     </div>
   </div>
+  <div>
+  </div>
 </template>
 
 <script>
@@ -304,12 +307,22 @@
 import status from "@/data/status.json";
 import priority from "@/data/priority.json";
 import projects from "@/data/projects.json";
+
+import { ref } from 'vue';
+const picked = ref(new Date());
+
+import DatepickerLite from 'vue3-datepicker-lite';
+
 export default {
   name: "ProjectPage",
-  components: {},
+  components: {
+    DatepickerLite
+  },
   data() {
     return {
       projectId : 0,
+      picked : picked,
+      value : null,
       project : {},
       status : [],
       numeProiect : "",
