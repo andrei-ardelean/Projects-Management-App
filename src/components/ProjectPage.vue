@@ -306,7 +306,7 @@
 // import participants from "@/data/participants.json";
 import status from "@/data/status.json";
 import priority from "@/data/priority.json";
-import projects from "@/data/projects.json";
+// import projects from "@/data/projects.json";
 
 import { ref } from 'vue';
 const picked = ref(new Date());
@@ -318,8 +318,12 @@ export default {
   components: {
     DatepickerLite
   },
+  mounted() {
+    this.projectPicker();
+  },
   data() {
     return {
+      projects: [],
       projectId : 0,
       picked : picked,
       value : null,
@@ -353,7 +357,7 @@ export default {
       if(this.$route.params.id != undefined){
         this.projectId = this.$route.params.id;
         var projectNumber = parseInt(this.projectId);
-        this.project = projects[projectNumber - 1];
+        this.project = this.projects[projectNumber - 1];
         this.participanti = this.project.participanti;
         this.numeProiect = this.project.proiect;
         this.responsabil = this.project.responsabil;
@@ -410,9 +414,6 @@ export default {
     onMouseLeaveStatus() {
       this.statusDropDown = false;
     }
-  },
-  mounted(){
-    this.projectPicker();
   }
 }
 </script>

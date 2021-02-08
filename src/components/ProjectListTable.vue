@@ -82,7 +82,7 @@
       </thead>
       <tbody>
         <tr
-          v-for="data in sorted"
+          v-for="data in projects"
           :key="data.id"
           @click="clickOnTableRow(data.id)"
         >
@@ -104,47 +104,30 @@
 </template>
 
 <script>
-import projects from "@/data/projects.json";
+// import projects from "@/data/projects.json";
 
 export default {
   name: "ProjectListTable",
   data: function () {
     return {
-      jsonData: [],
-      currentSort: "",
-      currentSortDir: "asc",
+      projects: [],
     };
   },
   mounted() {
-    this.loadJsonData();
+    this.loadProjects();
+    this.$store.dispatch('setProjects');
+    this.projects = this.$store.getters.allProjects;
   },
   methods: {
-    loadJsonData() {
+    loadProjects() {
       setTimeout(() => {
-        this.jsonData = projects;
+        this.$store.dispatch('setProjects');
+        this.projects = this.$store.getters.allProjects;
       }, 300);
-    },
-    sort: function (s) {
-      if (s === this.currentSort) {
-        this.currentSortDir = this.currentSortDir === "asc" ? "desc" : "asc";
-      }
-      this.currentSort = s;
-      console.log(this.currentSort);
     },
     clickOnTableRow: function(id) {
       this.$router.push({ path: "/project/" + id });
     }
-  },
-  computed: {
-    sorted: function () {
-      return this.jsonData.slice().sort((a, b) => {
-        let modifier = 1;
-        if (this.currentSortDir === "desc") modifier = -1;
-        if (a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
-        if (a[this.currentSort] > b[this.currentSort]) return modifier;
-        return 0;
-      });
-    },
-  },
+  }
 };
 </script>
