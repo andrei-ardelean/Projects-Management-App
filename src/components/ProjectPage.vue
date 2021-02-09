@@ -58,14 +58,36 @@
         >
           Responsabil
         </div>
-        <div>
-          <input
+        <div class="dropdown">
+          <!-- <input
             type="text"
             placeholder="Introdu responsabilul proiectului"
             v-model="responsabil"
             spellcheck="false"
             class="w-full inputField"
+          > -->
+          <input
+            v-model="responsabil"
+            @keyup="setResponsabilFlagTrue()"
+            class="dropdown-input text-black inputField w-full"
+            type="text"
+            spellcheck="false"
+            placeholder="Introdu responsabilul proiectului"
           >
+          <div
+            v-show="responsabili && responsabilFlag"
+            class="dropdown-list"
+          >
+            <div
+              v-show="responsabilVisible(item)"
+              v-for="item in responsabili"
+              @click="setResponsabilFlagFalse(item)"
+              :key="item"
+              class="dropdown-item"
+            >
+              {{ item }}
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -302,7 +324,7 @@
 </template>
 <script>
 // import beneficiaries from "@/data/beneficiaries.json";
-// import responsables from "@/data/responsables.json";
+import responsables from "@/data/responsables.json";
 // import participants from "@/data/participants.json";
 import status from "@/data/status.json";
 import priority from "@/data/priority.json";
@@ -329,6 +351,8 @@ export default {
       value : null,
       project : {},
       status : [],
+      responsabili : [],
+      responsabilFlag : false,
       numeProiect : "",
       termen: "",
       responsabil : "",
@@ -345,12 +369,23 @@ export default {
     }
   },
   methods: {
+    responsabilVisible (item) {
+      let currentResp = item.toLowerCase()
+      let currentInput = this.responsabil.toLowerCase()
+      return currentResp.startsWith(currentInput)
+    },
     projectPicker(){
+      this.$store.dispatch('setProjects');
+      this.projects = this.$store.getters.allProjects;
+
       status.forEach(element => {
         this.status.push(element.status);
       });
       priority.forEach(element => {
         this.prioritate.push(element.prioritate);
+      });
+      responsables.forEach(element => {
+        this.responsabili.push(element.responsabil);
       });
 
       console.log("router param: " + this.$route.params.id);
@@ -413,6 +448,14 @@ export default {
     },
     onMouseLeaveStatus() {
       this.statusDropDown = false;
+    },
+    setResponsabilFlagTrue() {
+      if(!this.responsabilFlag)
+        this.responsabilFlag = true;
+    },
+    setResponsabilFlagFalse(item) {
+      this.responsabilFlag = false;
+      this.responsabil = item;
     }
   }
 }
@@ -423,4 +466,70 @@ export default {
   margin-left: 10%;
   margin-right: 10%;
 }
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.dropdown-input .dropdown-selected {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  background: #edf2f7;
+  line-height: 1.5em;
+  outline: none;
+  border-radius: 8px;
+}
+
+.dropdown-selected:hover {
+  background: white;
+  border-color: #e2e8f0;
+}
+
+.dropdown-input:focus {
+  background: white;
+  border-color: #e2e8f0;
+}
+
+.dropdown-input::placeholder {
+  opacity: 0.7;
+}
+
+.dropdown-selected {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dropdown-list {
+  position: absolute;
+  width: 100%;
+  max-height: 500px;
+  margin-top: 4px;
+  overflow-y: auto;
+  background: white;
+  color: black;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.dropdown-item {
+  display: flex;
+  width: 100%;
+  padding: 11px 16px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #edf2f7;
+}
+
+.dropdown-item-flag {
+  max-width: 24px;
+  max-height: 18px;
+  margin: auto 12px auto 0;
+}
+
 </style>

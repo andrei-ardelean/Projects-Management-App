@@ -21,7 +21,8 @@ export default createStore({
       axios.get('./projects.json')
         .then(response => {
         commit('setProjects', response.data);
-      });
+        console.log(response);
+      }).catch(response => console.log(response));
     }
   },
   modules: {}
