@@ -100,12 +100,27 @@
         </div>
         <div>
           <input
-            type="text"
-            placeholder="Introdu beneficiarul proiectului"
             v-model="beneficiar"
+            @keyup="setBeneficiarFlagTrue()"
+            class="dropdown-input text-black inputField w-full"
+            type="text"
             spellcheck="false"
-            class="w-full inputField"
+            placeholder="Introdu beneficiarul proiectului"
           >
+          <div
+            v-show="beneficiari && beneficiarFlag"
+            class="dropdown-list"
+          >
+            <div
+              v-show="beneficiarVisible(item)"
+              v-for="item in beneficiari"
+              @click="setBeneficiarFlagFalse(item)"
+              :key="item"
+              class="dropdown-item"
+            >
+              {{ item }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -323,7 +338,7 @@
   </div>
 </template>
 <script>
-// import beneficiaries from "@/data/beneficiaries.json";
+import beneficiaries from "@/data/beneficiaries.json";
 import responsables from "@/data/responsables.json";
 // import participants from "@/data/participants.json";
 import status from "@/data/status.json";
@@ -353,10 +368,12 @@ export default {
       status : [],
       responsabili : [],
       responsabilFlag : false,
+      beneficiarFlag : false,
       numeProiect : "",
       termen: "",
       responsabil : "",
       beneficiar : "",
+      beneficiari : [],
       prioritate : [],
       participanti : [],
       newParticipant : "",
@@ -372,7 +389,12 @@ export default {
     responsabilVisible (item) {
       let currentResp = item.toLowerCase()
       let currentInput = this.responsabil.toLowerCase()
-      return currentResp.startsWith(currentInput)
+      return currentResp.includes(currentInput)
+    },
+    beneficiarVisible (item) {
+      let currentResp = item.toLowerCase()
+      let currentInput = this.beneficiar.toLowerCase()
+      return currentResp.includes(currentInput)
     },
     projectPicker(){
       this.$store.dispatch('setProjects');
@@ -386,6 +408,10 @@ export default {
       });
       responsables.forEach(element => {
         this.responsabili.push(element.responsabil);
+      });
+      beneficiaries.forEach(element => {
+        console.log(element.beneficiar);
+        this.beneficiari.push(element.beneficiar);
       });
 
       console.log("router param: " + this.$route.params.id);
@@ -456,6 +482,14 @@ export default {
     setResponsabilFlagFalse(item) {
       this.responsabilFlag = false;
       this.responsabil = item;
+    },
+    setBeneficiarFlagTrue() {
+      if(!this.beneficiarFlag)
+        this.beneficiarFlag = true;
+    },
+    setBeneficiarFlagFalse(item) {
+      this.beneficiarFlag = false;
+      this.beneficiar = item;
     }
   }
 }
@@ -504,7 +538,7 @@ export default {
 }
 
 .dropdown-list {
-  position: absolute;
+  position: relative;
   width: 100%;
   max-height: 500px;
   margin-top: 4px;
