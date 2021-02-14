@@ -3,6 +3,30 @@
     id="projectListTable"
     class="mt-4"
   >
+    <div class="searchArea">
+        <input
+          type="text"
+          v-model="searchField"
+          placeholder="Caută un proiect"
+          spellcheck="false"
+          class="searchInput"
+        >
+        <span class="svgIcon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </span>
+      </div>
     <table class="table">
       <thead>
         <tr>
@@ -82,6 +106,7 @@
       </thead>
       <tbody>
         <tr
+          v-show="searchProject(data)"
           v-for="data in projects"
           :key="data.id"
           @click="clickOnTableRow(data.id)"
@@ -111,6 +136,7 @@ export default {
   data: function () {
     return {
       projects: [],
+      searchField : '',
     };
   },
   mounted() {
@@ -127,7 +153,19 @@ export default {
     },
     clickOnTableRow: function(id) {
       this.$router.push({ path: "/project/" + id });
+    },
+    searchProject: function(item) {
+      console.log(item.name);
+      let currentResp = item.proiect.toLowerCase()
+      let currentInput = this.searchField.toLowerCase()
+      return currentResp.includes(currentInput)
     }
   }
 };
 </script>
+
+<style>
+.searchArea {
+  width: 25%;
+}
+</style>
