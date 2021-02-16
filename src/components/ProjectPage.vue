@@ -267,7 +267,7 @@
           >
           <svg
             @click="addParticipant()"
-            class="w-10 h-10 ml-1 cursor-pointer hover:bg-gray-900 rounded-xl"
+            class="w-10 h-10 ml-1 cursor-pointer hover:bg-gray-800 rounded-xl"
             xmlns="http://www.w3.org/2000/svg" 
             fill="none"
             viewBox="0 0 24 24"
