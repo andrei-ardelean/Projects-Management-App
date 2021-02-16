@@ -1,6 +1,6 @@
 nav {
   @apply flex items-center bg-gray-800 p-3 flex-wrap w-full;
-  @apply fixed top-0;
+  @apply fixed top-0 z-50;
 }
 
 .brand {

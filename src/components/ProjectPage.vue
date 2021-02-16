@@ -60,7 +60,7 @@
         >
           Responsabil
         </div>
-        <div>
+        <div class="relative z-20">
           <input
             v-model="responsibleInput"
             @keyup="setResponsibleFlagTrue()"
@@ -93,7 +93,7 @@
         >
           Beneficiar
         </div>
-        <div>
+        <div class="relative z-20">
           <input
             v-model="beneficiaryInput"
             @keyup="setBeneficiaryFlagTrue()"
@@ -132,7 +132,7 @@
         >
           Status
         </div>
-        <div>
+        <div class="relative">
           <div
             class="selectionArea"
             @click="toggleStatusFlag()"
@@ -174,7 +174,7 @@
         >
           Prioritate
         </div>
-        <div>
+        <div class="relative">
           <div
             class="selectionArea"
             @click="togglePriorityFlag()"
@@ -521,7 +521,7 @@ export default {
 }
 
 .dropdown-list {
-  position: relative;
+  position: absolute;
   width: 100%;
   max-height: 500px;
   margin-top: 4px;
