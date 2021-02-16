@@ -6,7 +6,7 @@
   @apply flex justify-center flex-col;
   @apply space-y-12;
   @apply mb-12;
-  @apply bg-gray-800 text-gray-200;
+  @apply bg-gray-900 text-gray-200;
 }
 
 .row {
@@ -19,10 +19,9 @@
   @apply border-none rounded p-2;
   @apply hover:text-white;
   @apply focus:outline-none;
-  @apply transition duration-100 ease-in-out transform hover:scale-105;
 }
 
-.participantiArea {
+.participantsArea {
   @apply flex flex-row flex-wrap justify-around items-center;
   @apply p-2;
 }
@@ -30,7 +29,6 @@
 .participant {
   @apply border-none rounded p-2 mb-2 text-lg;
   @apply hover:bg-red-600 cursor-pointer;
-  @apply transition duration-100 ease-in-out transform hover:scale-105;
 }
 
 .inputField {
@@ -39,36 +37,14 @@
 }
 
 .selectionArea {
-  @apply relative;
   @apply border-gray-800 rounded bg-white text-gray-800 text-base;
   @apply cursor-pointer;
   @apply hover:bg-gray-100;
   @apply flex flex-row flex-wrap justify-between items-center;
 }
 
-.dropDownList {
-  @apply bg-transparent;
-  @apply mt-1;
-}
-
-.option {
-  @apply bg-gray-50 text-gray-800 font-bold;
-  @apply hover:bg-gray-900 hover:text-gray-50;
-  @apply px-2 py-1 border border-gray-800 rounded;
-  @apply cursor-pointer;
-}
-
-.selectedOption {
-  @apply bg-gray-900 text-gray-50;
-  @apply border-2 border-gray-50;
-}
-
 .section {
   @apply mt-4 flex;
-}
-
-.miniSection {
-  @apply text-base;
 }
 
 .participantiSection {
@@ -77,25 +53,19 @@
 
 .leftSection {
   @apply ml-12 mr-3;
+  @apply text-base;
 }
 
 .rightSection {
   @apply ml-3 mr-12;
+  @apply text-base;
 }
 
-.nameOfSection {
+.sectionTitle {
   @apply mb-1 text-xl font-sans;
 }
 
-.lastSection {
+.notesSection {
   @apply mb-1 text-xl font-sans;
   @apply flex flex-row items-center;
-}
-
-.picker__box {
-  @apply w-full;
-}
-
-.picker__table {
-  @apply w-full table-fixed;
 }

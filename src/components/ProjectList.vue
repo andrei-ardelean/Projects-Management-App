@@ -19,12 +19,7 @@ export default {
   components: {
     ProjectListTable,
   },
-  data() {
-    return {
-      searchField : ""
-    }
-  },
-  methods: {
-  }
+  data() {},
+  methods: {}
 };
 </script>

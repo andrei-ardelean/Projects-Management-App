@@ -2,14 +2,15 @@
   <div 
     class="container"
   >
+    <!--Nume proiect & Termen-->
     <div
       class="section"
     >
       <div
-        class="w-1/2 miniSection leftSection"
+        class="w-1/2 leftSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           Nume proiect
         </div>
@@ -17,17 +18,17 @@
           <input
             type="text"
             placeholder="Introdu numele proiectului"
-            v-model="numeProiect"
+            v-model="projectNameInput"
             spellcheck="false"
             class="w-full inputField"
           >
         </div>
       </div>
       <div
-        class="w-1/2 miniSection rightSection"
+        class="w-1/2 rightSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           Termen
         </div>
@@ -40,48 +41,42 @@
             class="w-full inputField"
           > -->
           <DatepickerLite
-            v-model="termen"
+            v-model="deadlineInput"
             class="text-black cursor-pointer"
           />
         </div>
       </div>
     </div>
 
+    <!--Responsabil & Beneficiar-->
     <div
       class="section"
     >
       <div
-        class="w-1/2 miniSection leftSection"
+        class="w-1/2 leftSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           Responsabil
         </div>
-        <div class="dropdown">
-          <!-- <input
-            type="text"
-            placeholder="Introdu responsabilul proiectului"
-            v-model="responsabil"
-            spellcheck="false"
-            class="w-full inputField"
-          > -->
+        <div>
           <input
-            v-model="responsabil"
-            @keyup="setResponsabilFlagTrue()"
+            v-model="responsibleInput"
+            @keyup="setResponsibleFlagTrue()"
             class="dropdown-input text-black inputField w-full"
             type="text"
             spellcheck="false"
             placeholder="Introdu responsabilul proiectului"
           >
           <div
-            v-show="responsabili && responsabilFlag"
+            v-show="responsibles && responsibleFlag"
             class="dropdown-list"
           >
             <div
-              v-show="responsabilVisible(item)"
-              v-for="item in responsabili"
-              @click="setResponsabilFlagFalse(item)"
+              v-show="searchResponsible(item)"
+              v-for="item in responsibles"
+              @click="setResponsibleFlagFalse(item)"
               :key="item"
               class="dropdown-item"
             >
@@ -91,30 +86,30 @@
         </div>
       </div>
       <div
-        class="w-1/2 miniSection rightSection"
+        class="w-1/2 rightSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           Beneficiar
         </div>
         <div>
           <input
-            v-model="beneficiar"
-            @keyup="setBeneficiarFlagTrue()"
+            v-model="beneficiaryInput"
+            @keyup="setBeneficiaryFlagTrue()"
             class="dropdown-input text-black inputField w-full"
             type="text"
             spellcheck="false"
             placeholder="Introdu beneficiarul proiectului"
           >
           <div
-            v-show="beneficiari && beneficiarFlag"
+            v-show="beneficiaries && beneficiaryFlag"
             class="dropdown-list"
           >
             <div
-              v-show="beneficiarVisible(item)"
-              v-for="item in beneficiari"
-              @click="setBeneficiarFlagFalse(item)"
+              v-show="searchBeneficiary(item)"
+              v-for="item in beneficiaries"
+              @click="setBeneficiaryFlagFalse(item)"
               :key="item"
               class="dropdown-item"
             >
@@ -125,21 +120,22 @@
       </div>
     </div>
 
+    <!--Status & Prioritate-->
     <div
       class="section"
     >
       <div
-        class="w-1/2 miniSection leftSection"
+        class="w-1/2 leftSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           Status
         </div>
         <div>
           <div
             class="selectionArea"
-            @click="switchStatusDropDown()"
+            @click="setStatusFlagTrue()"
           >
             <span>{{ statusField }}</span>
             <svg
@@ -155,38 +151,35 @@
               />
             </svg>
           </div>
-
           <div
-            class="w-1/4 dropDownList"
-            @mouseleave="onMouseLeaveStatus()"
-            :class="{hidden:statusDropDown == false, absolute:statusDropDown == true}"
+            v-show="statuses && statusFlag"
+            class="dropdown-list"
           >
             <div
-              class="option"
-              v-for="data in status"
-              :key="data"
-              @click="selectStatus(data)"
-              :class="[statusField == data ? 'selectedOption' : '']"
+              v-for="item in statuses"
+              @click="setStatusFlagFalse(item)"
+              :key="item"
+              class="dropdown-item"
             >
-              {{ data }}
+              {{ item }}
             </div>
           </div>
         </div>
       </div>
       <div
-        class="w-1/2 miniSection rightSection"
+        class="w-1/2 rightSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           Prioritate
         </div>
         <div>
           <div
             class="selectionArea"
-            @click="switchPrioritateDropDown()"
+            @click="setPriorityFlagTrue()"
           >
-            <span>{{ prioritateField }}</span>
+            <span>{{ priorityField }}</span>
             <svg
               class="w-7 h-7 inset-y-0 right-0"
               xmlns="http://www.w3.org/2000/svg"
@@ -200,43 +193,41 @@
               />
             </svg>
           </div>
-
           <div
-            class="w-1/4 dropDownList"
-            @mouseleave="onMouseLeavePrioritate()"
-            :class="{hidden:prioritateDropDown == false, absolute:prioritateDropDown == true}"
+            v-show="priorities && priorityFlag"
+            class="dropdown-list"
           >
             <div
-              class="option"
-              v-for="data in prioritate"
-              :key="data"
-              @click="selectPrioritate(data)"
-              :class="[prioritateField == data ? 'selectedOption' : '']"
+              v-for="item in priorities"
+              @click="setPriorityFlagFalse(item)"
+              :key="item"
+              class="dropdown-item"
             >
-              {{ data }}
+              {{ item }}
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!--Participanti & Adauga participant-->
     <div
       class="section"
     >
       <div
-        class="w-1/2 miniSection leftSection"
+        class="w-1/2 leftSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           Participanți
         </div>
-        <div class="participantiArea">
+        <div class="participantsArea">
           <div
-            v-for="(data, index) in participanti"
+            v-for="(data, index) in participants"
             :key="data"
             class="participant"
-            @click="deleteParticipant(index)"
+            @click="removeParticipant(index)"
           >
             <div class="flex flex-row">
               {{ data }}
@@ -259,17 +250,17 @@
         </div>
       </div>
       <div
-        class="w-1/2 miniSection rightSection"
+        class="w-1/2 rightSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           Adaugi participant?
         </div>
         <div class="flex flex-row">
           <input
             type="text"
-            v-model="newParticipant"
+            v-model="newParticipantInput"
             placeholder="Introdu numele participantului"
             spellcheck="false"
             class="w-full inputField"
@@ -293,14 +284,15 @@
       </div>
     </div>
 
+    <!--Note & Salvare proiect-->
     <div
       class="flex flex-row justify-center items-center py-8"
     >
       <div
-        class="w-1/2 miniSection leftSection"
+        class="w-1/2 leftSection"
       >
         <div
-          class="lastSection"
+          class="notesSection"
         >
           <div>Vezi notele</div>
           <div>
@@ -322,10 +314,10 @@
         </div>
       </div>
       <div
-        class="w-1/2 miniSection rightSection"
+        class="w-1/2 rightSection"
       >
         <div
-          class="nameOfSection"
+          class="sectionTitle"
         >
           <button
             class="button"
@@ -339,14 +331,11 @@
 </template>
 <script>
 import beneficiaries from "@/data/beneficiaries.json";
-import responsables from "@/data/responsables.json";
-// import participants from "@/data/participants.json";
-import status from "@/data/status.json";
-import priority from "@/data/priority.json";
+import responsibles from "@/data/responsibles.json";
+import statuses from "@/data/statuses.json";
+import priorities from "@/data/priorities.json";
 // import projects from "@/data/projects.json";
-
-import { ref } from 'vue';
-const picked = ref(new Date());
+// import participants from "@/data/participants.json";
 
 import DatepickerLite from 'vue3-datepicker-lite';
 
@@ -356,141 +345,135 @@ export default {
     DatepickerLite
   },
   mounted() {
-    this.projectPicker();
+    this.getCurrentProject();
   },
   data() {
     return {
       projects: [],
+
       projectId : 0,
-      picked : picked,
-      value : null,
-      project : {},
-      status : [],
-      responsabili : [],
-      responsabilFlag : false,
-      beneficiarFlag : false,
-      numeProiect : "",
-      termen: "",
-      responsabil : "",
-      beneficiar : "",
-      beneficiari : [],
-      prioritate : [],
-      participanti : [],
-      newParticipant : "",
-      prioritateDropDown : false,
-      responsabilDropDown : false,
-      statusDropDown : false,
-      prioritateField : "",
-      responsabilField : "",
+      currentProject : {},
+
+      projectNameInput : "",
+      deadlineInput: "",
+
+      responsibles : [],
+      responsibleFlag : false,
+      responsibleInput : "",
+
+      beneficiaries : [],
+      beneficiaryFlag : false,
+      beneficiaryInput : "",
+
+      priorities : [],
+      priorityFlag: false,
+      priorityField : "",
+
+      statuses : [],
+      statusFlag: false,
       statusField : "",
+
+      participants : [],
+      newParticipantInput : "",
     }
   },
   methods: {
-    responsabilVisible (item) {
-      let currentResp = item.toLowerCase()
-      let currentInput = this.responsabil.toLowerCase()
-      return currentResp.includes(currentInput)
+    //search
+    searchResponsible (item) {
+      let responsible = item.toLowerCase()
+      let input = this.responsibleInput.toLowerCase()
+      return responsible.includes(input)
     },
-    beneficiarVisible (item) {
-      let currentResp = item.toLowerCase()
-      let currentInput = this.beneficiar.toLowerCase()
-      return currentResp.includes(currentInput)
+    searchBeneficiary (item) {
+      let beneficiary = item.toLowerCase()
+      let input = this.beneficiaryInput.toLowerCase()
+      return beneficiary.includes(input)
     },
-    projectPicker(){
+
+    //set flag true
+    setResponsibleFlagTrue() {
+      if(!this.responsibleFlag)
+        this.responsibleFlag = true;
+    },
+    setBeneficiaryFlagTrue() {
+      if(!this.beneficiaryFlag)
+        this.beneficiaryFlag = true;
+    },
+    setStatusFlagTrue() {
+      if(!this.statusFlag)
+        this.statusFlag = true;
+    },
+    setPriorityFlagTrue() {
+      if(!this.priorityFlag)
+        this.priorityFlag = true;
+    },
+
+    //set flag false
+    setResponsibleFlagFalse(item) {
+      this.responsibleFlag = false;
+      this.responsibleInput = item;
+    },
+    setBeneficiaryFlagFalse(item) {
+      this.beneficiaryFlag = false;
+      this.beneficiaryInput = item;
+    },
+    setStatusFlagFalse(item) {
+      this.statusFlag = false;
+      this.statusField = item;
+    },
+    setPriorityFlagFalse(item) {
+      this.priorityFlag = false;
+      this.priorityField = item;
+    },
+
+    //get current project
+    getCurrentProject(){
       this.$store.dispatch('setProjects');
       this.projects = this.$store.getters.allProjects;
 
-      status.forEach(element => {
-        this.status.push(element.status);
+      //set data
+      statuses.forEach(element => {
+        this.statuses.push(element.status);
       });
-      priority.forEach(element => {
-        this.prioritate.push(element.prioritate);
+      priorities.forEach(element => {
+        this.priorities.push(element.prioritate);
       });
-      responsables.forEach(element => {
-        this.responsabili.push(element.responsabil);
+      responsibles.forEach(element => {
+        this.responsibles.push(element.responsabil);
       });
       beneficiaries.forEach(element => {
-        console.log(element.beneficiar);
-        this.beneficiari.push(element.beneficiar);
+        this.beneficiaries.push(element.beneficiar);
       });
 
-      console.log("router param: " + this.$route.params.id);
+      //get project
+      console.log("router parameter: " + this.$route.params.id);
       if(this.$route.params.id != undefined){
         this.projectId = this.$route.params.id;
-        var projectNumber = parseInt(this.projectId);
-        this.project = this.projects[projectNumber - 1];
-        this.participanti = this.project.participanti;
-        this.numeProiect = this.project.proiect;
-        this.responsabil = this.project.responsabil;
-        this.beneficiar = this.project.beneficiar;
-        this.statusField = this.project.status;
-        this.prioritateField = this.project.prioritate;
-        this.termen = this.project.termen;
+        this.currentProject = this.projects[parseInt(this.projectId) - 1];
+
+        this.projectNameInput = this.currentProject.proiect;
+        this.deadlineInput = this.currentProject.termen;
+
+        this.responsibleInput = this.currentProject.responsabil;
+        this.beneficiaryInput = this.currentProject.beneficiar;
+
+        this.statusField = this.currentProject.status;
+        this.priorityField = this.currentProject.prioritate;
+
+        this.participants = this.currentProject.participanti;
       }
     },
-    deleteParticipant(index){
-      this.participanti.splice(index, 1);
+
+    //add-remove participant
+    removeParticipant(index){
+      this.participants.splice(index, 1);
     },
     addParticipant(){
-      if(this.newParticipant != ""){
-        this.participanti.push(this.newParticipant);
-        this.newParticipant = "";
+      if(this.newParticipantInput != ""){
+        this.participants.push(this.newParticipantInput);
+        this.newParticipantInput = "";
       }
     },
-    selectPrioritate(value) {
-      this.prioritateField = value;
-      this.switchPrioritateDropDown();
-    },
-    switchPrioritateDropDown() {
-      if(this.prioritateDropDown == false){
-        this.prioritateDropDown = true;
-      }
-      else {
-        this.prioritateDropDown = false;
-      }
-    },
-    selectResponsabil(value) {
-      this.responsabilField = value;
-      this.switchResponsabilDropDown();
-    },
-    switchResponsabilDropDown() {
-      if(this.responsabilDropDown == false)
-        this.responsabilDropDown = true;
-      else
-        this.responsabilDropDown = false;
-    },
-    selectStatus(value) {
-      this.statusField = value;
-      this.switchStatusDropDown();
-    },
-    switchStatusDropDown() {
-      if(this.statusDropDown == false)
-        this.statusDropDown = true;
-      else
-        this.statusDropDown = false;
-    },
-    onMouseLeavePrioritate() {
-      this.prioritateDropDown = false;
-    },
-    onMouseLeaveStatus() {
-      this.statusDropDown = false;
-    },
-    setResponsabilFlagTrue() {
-      if(!this.responsabilFlag)
-        this.responsabilFlag = true;
-    },
-    setResponsabilFlagFalse(item) {
-      this.responsabilFlag = false;
-      this.responsabil = item;
-    },
-    setBeneficiarFlagTrue() {
-      if(!this.beneficiarFlag)
-        this.beneficiarFlag = true;
-    },
-    setBeneficiarFlagFalse(item) {
-      this.beneficiarFlag = false;
-      this.beneficiar = item;
-    }
   }
 }
 </script>
