@@ -135,7 +135,7 @@
         <div>
           <div
             class="selectionArea"
-            @click="setStatusFlagTrue()"
+            @click="toggleStatusFlag()"
           >
             <span>{{ statusField }}</span>
             <svg
@@ -177,7 +177,7 @@
         <div>
           <div
             class="selectionArea"
-            @click="setPriorityFlagTrue()"
+            @click="togglePriorityFlag()"
           >
             <span>{{ priorityField }}</span>
             <svg
@@ -399,13 +399,13 @@ export default {
       if(!this.beneficiaryFlag)
         this.beneficiaryFlag = true;
     },
-    setStatusFlagTrue() {
-      if(!this.statusFlag)
-        this.statusFlag = true;
+
+    //toggle flag
+    toggleStatusFlag() {
+      this.statusFlag = !this.statusFlag;
     },
-    setPriorityFlagTrue() {
-      if(!this.priorityFlag)
-        this.priorityFlag = true;
+    togglePriorityFlag() {
+      this.priorityFlag = !this.priorityFlag;
     },
 
     //set flag false

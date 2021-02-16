@@ -4,13 +4,6 @@
     class="mt-4"
   >
     <div class="searchArea">
-      <input
-        type="text"
-        v-model="searchField"
-        placeholder="Caută un proiect..."
-        spellcheck="false"
-        class="searchInput"
-      >
       <span class="svgIcon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +19,13 @@
           />
         </svg>
       </span>
+      <input
+        type="text"
+        v-model="searchField"
+        placeholder="Caută un proiect..."
+        spellcheck="false"
+        class="searchInput"
+      >
     </div>
     <table class="table">
       <thead>
