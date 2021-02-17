@@ -1,12 +1,12 @@
 .searchArea {
-  @apply mr-10 bg-clip-padding mb-6 w-80;
+  @apply mr-10 bg-clip-padding mb-6 w-80 grid grid-cols-12;
   @apply border-2 rounded border-gray-800 shadow;
   @apply bg-white;
 }
 
 .searchInput {
   @apply px-4 w-auto h-9;
-  @apply focus:outline-none;
+  @apply focus:outline-none col-span-11;
 }
 
 .svgIcon {

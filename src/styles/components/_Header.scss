@@ -34,5 +34,5 @@ nav {
 }
 
 .menu {
-  @apply text-sm text-gray-400 hover:bg-gray-900 hover:text-white;
+  @apply text-sm text-gray-400 hover:bg-gray-900 hover:text-white focus:outline-none;
 }

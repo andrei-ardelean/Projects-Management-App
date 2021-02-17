@@ -340,11 +340,11 @@ export default {
     DatepickerLite
   },
   computed: mapGetters([
-    'allProjects',
-    'allResponsibles',
-    'allBeneficiaries',
-    'allStatuses',
-    'allPriorities'
+      'allProjects',
+      'allResponsibles',
+      'allBeneficiaries',
+      'allStatuses',
+      'allPriorities'
     ]),
   created() {
     this.setupCurrentProject();
@@ -375,11 +375,11 @@ export default {
   },
   methods: {
     ...mapActions([
-    'fetchProjects',
-    'fetchResponsibles',
-    'fetchBeneficiaries',
-    'fetchStatuses',
-    'fetchPriorities'
+      'fetchProjects',
+      'fetchResponsibles',
+      'fetchBeneficiaries',
+      'fetchStatuses',
+      'fetchPriorities'
     ]),
 
     //get current project and other entities
