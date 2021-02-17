@@ -70,17 +70,17 @@
             placeholder="Introdu responsabilul proiectului"
           >
           <div
-            v-show="responsibles && responsibleFlag"
+            v-show="allResponsibles && responsibleFlag"
             class="dropdown-list"
           >
             <div
-              v-show="searchResponsible(item)"
-              v-for="item in responsibles"
-              @click="setResponsibleFlagFalse(item)"
-              :key="item"
+              v-show="searchResponsible(item.responsabil)"
+              v-for="item in allResponsibles"
+              @click="setResponsibleFlagFalse(item.responsabil)"
+              :key="item.responsabil"
               class="dropdown-item"
             >
-              {{ item }}
+              {{ item.responsabil }}
             </div>
           </div>
         </div>
@@ -103,17 +103,17 @@
             placeholder="Introdu beneficiarul proiectului"
           >
           <div
-            v-show="beneficiaries && beneficiaryFlag"
+            v-show="allBeneficiaries && beneficiaryFlag"
             class="dropdown-list"
           >
             <div
-              v-show="searchBeneficiary(item)"
-              v-for="item in beneficiaries"
-              @click="setBeneficiaryFlagFalse(item)"
-              :key="item"
+              v-show="searchBeneficiary(item.beneficiar)"
+              v-for="item in allBeneficiaries"
+              @click="setBeneficiaryFlagFalse(item.beneficiar)"
+              :key="item.beneficiar"
               class="dropdown-item"
             >
-              {{ item }}
+              {{ item.beneficiar }}
             </div>
           </div>
         </div>
@@ -152,16 +152,16 @@
             </svg>
           </div>
           <div
-            v-show="statuses && statusFlag"
+            v-show="allStatuses && statusFlag"
             class="dropdown-list"
           >
             <div
-              v-for="item in statuses"
-              @click="setStatusFlagFalse(item)"
-              :key="item"
+              v-for="item in allStatuses"
+              @click="setStatusFlagFalse(item.status)"
+              :key="item.status"
               class="dropdown-item"
             >
-              {{ item }}
+              {{ item.status }}
             </div>
           </div>
         </div>
@@ -194,16 +194,16 @@
             </svg>
           </div>
           <div
-            v-show="priorities && priorityFlag"
+            v-show="allPriorities && priorityFlag"
             class="dropdown-list"
           >
             <div
-              v-for="item in priorities"
-              @click="setPriorityFlagFalse(item)"
-              :key="item"
+              v-for="item in allPriorities"
+              @click="setPriorityFlagFalse(item.prioritate)"
+              :key="item.prioritate"
               class="dropdown-item"
             >
-              {{ item }}
+              {{ item.prioritate }}
             </div>
           </div>
         </div>
@@ -330,12 +330,7 @@
   </div>
 </template>
 <script>
-import beneficiaries from "@/data/beneficiaries.json";
-import responsibles from "@/data/responsibles.json";
-import statuses from "@/data/statuses.json";
-import priorities from "@/data/priorities.json";
-// import projects from "@/data/projects.json";
-// import participants from "@/data/participants.json";
+import {mapGetters, mapActions} from 'vuex';
 
 import DatepickerLite from 'vue3-datepicker-lite';
 
@@ -344,32 +339,33 @@ export default {
   components: {
     DatepickerLite
   },
-  mounted() {
-    this.getCurrentProject();
+  computed: mapGetters([
+    'allProjects',
+    'allResponsibles',
+    'allBeneficiaries',
+    'allStatuses',
+    'allPriorities'
+    ]),
+  created() {
+    this.setupCurrentProject();
   },
   data() {
     return {
-      projects: [],
-
       projectId : 0,
       currentProject : {},
 
       projectNameInput : "",
       deadlineInput: "",
 
-      responsibles : [],
       responsibleFlag : false,
       responsibleInput : "",
 
-      beneficiaries : [],
       beneficiaryFlag : false,
       beneficiaryInput : "",
 
-      priorities : [],
       priorityFlag: false,
       priorityField : "",
 
-      statuses : [],
       statusFlag: false,
       statusField : "",
 
@@ -378,6 +374,41 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+    'fetchProjects',
+    'fetchResponsibles',
+    'fetchBeneficiaries',
+    'fetchStatuses',
+    'fetchPriorities'
+    ]),
+
+    //get current project and other entities
+    setupCurrentProject(){
+      //set data
+      this.fetchProjects();
+      this.fetchResponsibles();
+      this.fetchBeneficiaries();
+      this.fetchStatuses();
+      this.fetchPriorities();
+
+      //get project
+      if(this.$route.params.id != undefined){
+        this.projectId = this.$route.params.id;
+        this.currentProject = this.allProjects[parseInt(this.projectId) - 1];
+
+        this.projectNameInput = this.currentProject.proiect;
+        this.deadlineInput = this.currentProject.termen;
+
+        this.responsibleInput = this.currentProject.responsabil;
+        this.beneficiaryInput = this.currentProject.beneficiar;
+
+        this.statusField = this.currentProject.status;
+        this.priorityField = this.currentProject.prioritate;
+
+        this.participants = this.currentProject.participanti;
+      }
+    },
+
     //search
     searchResponsible (item) {
       let responsible = item.toLowerCase()
@@ -424,44 +455,6 @@ export default {
     setPriorityFlagFalse(item) {
       this.priorityFlag = false;
       this.priorityField = item;
-    },
-
-    //get current project
-    getCurrentProject(){
-      this.$store.dispatch('setProjects');
-      this.projects = this.$store.getters.allProjects;
-
-      //set data
-      statuses.forEach(element => {
-        this.statuses.push(element.status);
-      });
-      priorities.forEach(element => {
-        this.priorities.push(element.prioritate);
-      });
-      responsibles.forEach(element => {
-        this.responsibles.push(element.responsabil);
-      });
-      beneficiaries.forEach(element => {
-        this.beneficiaries.push(element.beneficiar);
-      });
-
-      //get project
-      console.log("router parameter: " + this.$route.params.id);
-      if(this.$route.params.id != undefined){
-        this.projectId = this.$route.params.id;
-        this.currentProject = this.projects[parseInt(this.projectId) - 1];
-
-        this.projectNameInput = this.currentProject.proiect;
-        this.deadlineInput = this.currentProject.termen;
-
-        this.responsibleInput = this.currentProject.responsabil;
-        this.beneficiaryInput = this.currentProject.beneficiar;
-
-        this.statusField = this.currentProject.status;
-        this.priorityField = this.currentProject.prioritate;
-
-        this.participants = this.currentProject.participanti;
-      }
     },
 
     //add-remove participant

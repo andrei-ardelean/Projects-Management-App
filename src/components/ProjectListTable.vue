@@ -106,8 +106,8 @@
       </thead>
       <tbody>
         <tr
-          v-for="data in projects"
-          v-show="searchProject(data)"
+          v-for="data in allProjects"
+          v-show="searchProject(data.proiect)"
           :key="data.id"
           @click="clickOnTableRow(data.id)"
         >
@@ -129,33 +129,30 @@
 </template>
 
 <script>
-// import projects from "@/data/projects.json";
+import {mapGetters, mapActions} from 'vuex';
 
 export default {
   name: "ProjectListTable",
   data: function () {
     return {
-      projects: [],
       searchField : '',
     };
   },
-  mounted() {
-    this.loadProjects();
-    this.$store.dispatch('setProjects');
-    this.projects = this.$store.getters.allProjects;
+  computed: mapGetters(['allProjects']),
+  created() {
+    this.fetchProjects();
   },
   methods: {
-    loadProjects() {
-      setTimeout(() => {
-        this.$store.dispatch('setProjects');
-        this.projects = this.$store.getters.allProjects;
-      }, 300);
-    },
+    ...mapActions(['fetchProjects']),
+
+    //redirect project page
     clickOnTableRow: function(id) {
       this.$router.push({ path: "/project/" + id });
     },
+
+    //search project
     searchProject: function(item) {
-      let projectName = item.proiect.toLowerCase()
+      let projectName = item.toLowerCase()
       let input = this.searchField.toLowerCase()
       return projectName.includes(input)
     }
