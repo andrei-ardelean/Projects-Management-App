@@ -22,13 +22,13 @@
 }
 
 .participantsArea {
-  @apply flex flex-row flex-wrap justify-around items-center;
+  @apply flex flex-row flex-wrap justify-center items-center;
   @apply p-2;
 }
 
 .participant {
   @apply border-none rounded p-2 mb-2 text-lg;
-  @apply hover:bg-red-600 cursor-pointer;
+  @apply hover:bg-gray-800 cursor-default;
 }
 
 .inputField {

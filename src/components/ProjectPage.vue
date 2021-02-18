@@ -36,7 +36,7 @@
           <!-- <input
             type="text"
             placeholder="23/12/2020"
-            v-model="termen"
+            v-model="deadlineInput"
             spellcheck="false"
             class="w-full inputField"
           > -->
@@ -139,6 +139,7 @@
           >
             <span>{{ statusField }}</span>
             <svg
+              v-show="!statusFlag"
               class="w-7 h-7 inset-y-0 right-0"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -147,6 +148,19 @@
               <path
                 fill-rule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <svg
+              v-show="statusFlag"
+              class="w-7 h-7 inset-y-0 right-0"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
                 clip-rule="evenodd"
               />
             </svg>
@@ -181,6 +195,7 @@
           >
             <span>{{ priorityField }}</span>
             <svg
+              v-show="!priorityFlag"
               class="w-7 h-7 inset-y-0 right-0"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -189,6 +204,19 @@
               <path
                 fill-rule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <svg
+              v-show="priorityFlag"
+              class="w-7 h-7 inset-y-0 right-0"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
                 clip-rule="evenodd"
               />
             </svg>
@@ -232,7 +260,7 @@
             <div class="flex flex-row">
               {{ data }}
               <svg
-                class="w-7 h-7 ml-3"
+                class="w-7 h-7 ml-3 hover:opacity-50 cursor-pointer"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -339,13 +367,15 @@ export default {
   components: {
     DatepickerLite
   },
-  computed: mapGetters([
+  computed: {
+    ...mapGetters([
       'allProjects',
       'allResponsibles',
       'allBeneficiaries',
       'allStatuses',
       'allPriorities'
     ]),
+  },
   created() {
     this.setupCurrentProject();
   },
