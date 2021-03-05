@@ -32,7 +32,8 @@
 }
 
 .inputField {
-  @apply text-gray-800 font-bold px-2 py-1 border border-gray-800 rounded;
+  @apply text-gray-800 font-bold px-2 py-1;
+  @apply border rounded;
   @apply focus:outline-none;
 }
 

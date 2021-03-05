@@ -23,6 +23,32 @@
             class="w-full inputField"
           >
         </div>
+        <div
+          class="mt-2 text-red-600 flex flex-row"
+          :class="{ 'hidden' : validProjectNameInput}"
+        >
+          <div>
+            <svg
+              class="w-7 h-7"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+          </div>
+          <div
+            class="ml-1"
+          >
+            Câmpul nu poate fi gol!
+          </div>
+        </div>
       </div>
       <div
         class="w-1/2 rightSection"
@@ -33,17 +59,43 @@
           Termen
         </div>
         <div>
-          <!-- <input
+          <input
             type="text"
-            placeholder="23/12/2020"
+            placeholder="23.12.2020"
             v-model="deadlineInput"
             spellcheck="false"
             class="w-full inputField"
-          > -->
-          <DatepickerLite
+          >
+          <!-- <DatepickerLite
             v-model="deadlineInput"
             class="text-black cursor-pointer"
-          />
+          /> -->
+        </div>
+        <div
+          class="mt-2 text-red-600 flex flex-row"
+          :class="{ 'hidden' : validDeadlineInput}"
+        >
+          <div>
+            <svg
+              class="w-7 h-7"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+          </div>
+          <div
+            class="ml-1"
+          >
+            Câmpul nu este valid!
+          </div>
         </div>
       </div>
     </div>
@@ -83,6 +135,32 @@
               {{ item.responsabil }}
             </div>
           </div>
+          <div
+            class="mt-2 text-red-600 flex flex-row"
+            :class="{ 'hidden' : validResponsibleInput}"
+          >
+            <div>
+              <svg
+                class="w-7 h-7"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            </div>
+            <div
+              class="ml-1"
+            >
+              Câmpul nu poate fi gol!
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -114,6 +192,32 @@
               class="dropdown-item"
             >
               {{ item.beneficiar }}
+            </div>
+          </div>
+          <div
+            class="mt-2 text-red-600 flex flex-row"
+            :class="{ 'hidden' : validBeneficiaryInput}"
+          >
+            <div>
+              <svg
+                class="w-7 h-7"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            </div>
+            <div
+              class="ml-1"
+            >
+              Câmpul nu poate fi gol!
             </div>
           </div>
         </div>
@@ -178,6 +282,32 @@
               {{ item.status }}
             </div>
           </div>
+          <div
+            class="mt-2 text-red-600 flex flex-row"
+            :class="{ 'hidden' : validStatusField}"
+          >
+            <div>
+              <svg
+                class="w-7 h-7"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            </div>
+            <div
+              class="ml-1"
+            >
+              Nicio variantă nu a fost selectată!
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -232,6 +362,32 @@
               class="dropdown-item"
             >
               {{ item.prioritate }}
+            </div>
+          </div>
+          <div
+            class="mt-2 text-red-600 flex flex-row"
+            :class="{ 'hidden' : validPriorityField}"
+          >
+            <div>
+              <svg
+                class="w-7 h-7"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            </div>
+            <div
+              class="ml-1"
+            >
+              Nicio variantă nu a fost selectată!
             </div>
           </div>
         </div>
@@ -349,6 +505,7 @@
         >
           <button
             class="button"
+            @click="saveProject()"
           >
             Salvează modificările
           </button>
@@ -360,12 +517,12 @@
 <script>
 import {mapGetters, mapActions} from 'vuex';
 
-import DatepickerLite from 'vue3-datepicker-lite';
+// import DatepickerLite from 'vue3-datepicker-lite';
 
 export default {
   name: "ProjectPage",
   components: {
-    DatepickerLite
+    // DatepickerLite
   },
   computed: {
     ...mapGetters([
@@ -381,7 +538,7 @@ export default {
   },
   data() {
     return {
-      projectId : 0,
+      projectId : -1,
       currentProject : {},
 
       projectNameInput : "",
@@ -401,6 +558,13 @@ export default {
 
       participants : [],
       newParticipantInput : "",
+
+      validProjectNameInput : true,
+      validResponsibleInput : true,
+      validBeneficiaryInput : true,
+      validDeadlineInput : true,
+      validStatusField : true,
+      validPriorityField : true,
     }
   },
   methods: {
@@ -409,7 +573,9 @@ export default {
       'fetchResponsibles',
       'fetchBeneficiaries',
       'fetchStatuses',
-      'fetchPriorities'
+      'fetchPriorities',
+      'addProject',
+      'updateProject'
     ]),
 
     //get current project and other entities
@@ -436,6 +602,64 @@ export default {
         this.priorityField = this.currentProject.prioritate;
 
         this.participants = this.currentProject.participanti;
+      }
+    },
+
+    //save project
+    saveProject(){
+      var allValid = true;
+
+      //validate fields
+      if(this.projectNameInput == ''){
+        this.validProjectNameInput = false;
+        allValid = false;
+      } else this.validProjectNameInput = true;
+        
+      if(this.deadlineInput == ''){
+        this.validDeadlineInput = false;
+        allValid = false;
+      } else this.validDeadlineInput = true;
+      
+      if(this.responsibleInput == ''){
+        this.validResponsibleInput = false;
+        allValid = false;
+      } else this.validResponsibleInput = true;
+
+      if(this.beneficiaryInput == ''){
+        this.validBeneficiaryInput = false;
+        allValid = false;
+      } else this.validBeneficiaryInput = true;
+
+      if(this.statusField == ''){
+        this.validStatusField = false;
+        allValid = false;
+      } else this.validStatusField = true;
+
+      if(this.priorityField == ''){
+        this.validPriorityField = false;
+        allValid = false;
+      } else this.validPriorityField = true;
+
+      //create and save new project
+      if(allValid){
+        var newId;
+        (this.projectId == -1) ? newId = this.allProjects.length + 1 : newId = this.projectId;
+        const newProject = {
+          "id": newId,
+          "nrParticipanti": this.participants.length,
+          "participanti": this.participants,
+          "proiect": this.projectNameInput,
+          "responsabil": this.responsibleInput,
+          "beneficiar": this.beneficiaryInput,
+          "status": this.statusField,
+          "prioritate": this.priorityField,
+          "termen": this.deadlineInput
+        };
+        //add or update new project
+        if(this.projectId == -1)
+          this.addProject(newProject);
+        else
+          this.updateProject(newProject);
       }
     },
 
